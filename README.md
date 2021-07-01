@@ -9,7 +9,7 @@
 ### Demo:
 
 ### Tech:
-- Using Heroku to deply the site.
+- Using Heroku to deploy the site.
 - Using the Nutritionix API to calculate nutritional information.
 - Using databases to store user input.
 - Using databasess to securely log in users.
