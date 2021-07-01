@@ -1,4 +1,4 @@
-# carb_counter
+# Carb Counter
 ## An app for users to track carbohydrate information in their food(s) for a meal or snack
 
 ### Features:
