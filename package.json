@@ -1,0 +1,23 @@
+{
+  "name": "carb_counter",
+  "version": "1.0.0",
+  "description": "### Features: - Users are able to calculate their carbohydrate intake. - Users can store their intake and keep track. - Ablility to find foods from a database and read nutritional data.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MRAx09/carb_counter.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MRAx09/carb_counter/issues"
+  },
+  "homepage": "https://github.com/MRAx09/carb_counter#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "sequelize": "^6.6.4"
+  }
+}
