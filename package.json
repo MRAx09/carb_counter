@@ -4,7 +4,9 @@
   "description": "### Features: - Users are able to calculate their carbohydrate intake. - Users can store their intake and keep track. - Ablility to find foods from a database and read nutritional data.",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "seed": "node seeds/index.js"
   },
   "repository": {
     "type": "git",
