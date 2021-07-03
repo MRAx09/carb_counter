@@ -1,0 +1,17 @@
+[
+    {
+        "user_id": 1,
+        "meal_name": "Spaghetti Dinner with milk and cookie",
+        "food_ids": [1, 2, 3, 4, 9]
+    },
+    {
+        "user_id": 1,
+        "meal_name": "chicken burger and apple",
+        "food_ids": [5, 6, 7, 10]
+    },
+    {
+        "user_id": 1,
+        "meal_name": "beans, rice, and kale with milk",
+        "food_ids": [4, 8, 11, 12]
+    },
+  ]
