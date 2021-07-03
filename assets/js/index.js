@@ -26,7 +26,7 @@ var passwordInput = $("#passwordInput");
 var backBtn = $("#backBtn")
 
 
-showSignUpBtn.on("click", function signUp(e) {
+showSignUpBtn.on("click", function showSignUp(e) {
     e.preventDefault();
     flavorTxt.css("display", "none");
     logInInputs.css("display", "none");
@@ -35,7 +35,7 @@ showSignUpBtn.on("click", function signUp(e) {
     initialBtns.css("display", "none");
 })
 
-showLogInBtn.on("click", function signUp(e) {
+showLogInBtn.on("click", function showLogIn(e) {
     e.preventDefault();
     backBtn.css("display", "initial");
     flavorTxt.css("display", "none");
@@ -45,7 +45,7 @@ showLogInBtn.on("click", function signUp(e) {
 })
 
 
-backBtn.on("click", function signUp(e) {
+backBtn.on("click", function back(e) {
     e.preventDefault();
     flavorTxt.css("display", "initial");
     logInInputs.css("display", "none")
