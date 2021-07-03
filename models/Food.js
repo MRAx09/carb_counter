@@ -25,6 +25,7 @@ Food.init(
     fiber: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        defaultValue: 0,
         validate: {
             isNumeric: true,
         },

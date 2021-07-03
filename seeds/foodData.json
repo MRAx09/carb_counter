@@ -1,0 +1,61 @@
+[
+    {
+      "food_name": "Whole Wheat spaghetti cooked, 1 cup",
+      "total_carbohydrates": 37,
+      "fiber": 6
+    },
+    {
+        "food_name": "Spaghetti Sauce, 1/2 cup",
+        "total_carbohydrates": 10,
+        "fiber": 2
+    },
+    {
+        "food_name": "Meatballs, 4 medium",
+        "total_carbohydrates": 9,
+        "fiber": 2
+    },
+    {
+        "food_name": "Milk, 1 cup",
+        "total_carbohydrates": 12,
+    },
+    {
+        "food_name": "Whole Wheat Hamburger Bun",
+        "total_carbohydrates": 27,
+        "fiber": 3
+    },
+    {
+        "food_name": "Breaded chicken patty",
+        "total_carbohydrates": 13,
+        "fiber": 1
+    },
+    {
+        "food_name": "tomato 1 slice",
+        "total_carbohydrates": 1,
+        "fiber": 0
+    },
+    {
+        "food_name": "black beans, cooked 1/2 cup",
+        "total_carbohydrates": 20,
+        "fiber": 8
+    },
+    {
+        "food_name": "chocolate chip cookie, 1 medium",
+        "total_carbohydrates": 20
+    },
+    {
+        "food_name": "apple, 1 medium",
+        "total_carbohydrates": 14,
+        "fiber": 2
+    },
+    {
+        "food_name": "brown rice, 1/2  cup",
+        "total_carbohydrates": 22,
+        "fiber": 2
+    },
+    {
+        "food_name": "kale, chopped 1 cup",
+        "total_carbohydrates": 7,
+        "fiber": 3
+    }
+  ]
+  
