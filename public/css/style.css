@@ -1,0 +1,316 @@
+#background {
+    display:initial;
+    
+    position:absolute   ;
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    top: 0%;
+    
+    background: #e5dede;
+    }
+    
+    #nameTxt {
+    display: initial;
+    
+    position: absolute;
+    width: 500px;
+    height: 84px;
+    left: 30%;
+    top: -5%;
+    
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 72px;
+    line-height: 84px;
+    
+    color: #000000;
+    
+    }
+    
+    #flavor-txt {
+    display:initial;
+    
+    position: absolute;
+    margin: auto;
+    width: 598px;
+    height: 28px;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    color: #000000;
+    
+    }
+    
+    #showLogInBtn {
+    display:initial;
+    
+    position: fixed;
+    width: 141px;
+    height: 48px;
+    left: 30%;
+    top:  80%;
+    margin:auto;
+    
+    background: #9CDA8D;
+    border: 2px solid #000000;
+    box-sizing: border-box;
+    border-radius: 8px;
+    }
+        #showLogInBtn:hover {
+           background: #8ecde0;
+        }
+    
+    #showSignUpBtn {
+    display:initial;
+    
+    position: absolute;
+    width: 141px;
+    height: 48px;
+    left: 60%;
+    top: 80%;
+    
+    background: #9CDA8D;
+    border: 2px solid #000000;
+    box-sizing: border-box;
+    border-radius: 8px;
+    }
+        #showSignUpBtn:hover {
+            background-color: #8ecde0;
+        }
+    
+    
+    #createUserNameInput {
+    
+    position: absolute;
+    width: 279px;
+    height: 34px;
+    left: 35%;
+    top: 40%;
+    
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 8px;
+    }
+    
+    #createPasswordInput {
+    
+    position: absolute;
+    width: 279px;
+    height: 34px;
+    left: 35%;
+    top: 55%;
+    
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 8px;
+    }
+    
+    #confirmPasswordInput {
+    
+    position: absolute;
+    width: 279px;
+    height: 34px;
+    left: 35%;
+    top: 70%;
+    
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 8px;
+    }
+    
+    
+    #createAcntBtn {
+    
+    position: absolute;
+    width: 108.57px;
+    height: 34px;
+    left: 44%;
+    top: 80%;
+    
+    background: #9CDA8D;
+    border: 2px solid #000000;
+    box-sizing: border-box;
+    border-radius: 8px;
+    }
+        #createAcntBtn:hover {
+            background:#8ecde0;
+    
+        }
+    
+    #userNameInput {
+    position: absolute;
+    width: 279px;
+    height: 34px;
+    left: 35%;
+    top: 40%;
+    
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 8px;
+    }
+    
+    #passwordInput {
+    
+    position: absolute;
+    width: 279px;
+    height: 34px;
+    left: 35%;
+    top: 55%;
+    
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 8px;
+    }
+    
+    #logInBtn {
+    
+    position: absolute;
+    width: 108.57px;
+    height: 34px;
+    left: 44%;
+    top: 70%;
+    
+    background: #9CDA8D;
+    border: 2px solid #000000;
+    box-sizing: border-box;
+    border-radius: 8px;
+    }
+        #logInBtn:hover {
+            background:#8ecde0;
+    
+        }
+    
+    
+    #newUserName {
+    
+    position: absolute;
+    width: 142.66px;
+    height: 42px;
+    left: 44%;
+    top: 30%;
+    
+    font-family: Arial, Helvetica, sans-serif;
+    
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    
+    color: #000000;
+    
+    }
+    
+    #newUserPw {
+    
+    position: absolute;
+    width: 142.66px;
+    height: 42px;
+    left: 44%;
+    top: 45%;
+    
+    font-family: Arial, Helvetica, sans-serif;
+    
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    
+    color: #000000;
+    
+    }
+    
+    #confirmPw {
+    
+    position: absolute;
+    width: 200.66px;
+    height: 42px;
+    left: 40%;
+    top: 60%;
+    
+    font-family: Arial, Helvetica, sans-serif;
+    
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    
+    color: #000000;
+    
+    }
+    
+    #logInUserName {
+    
+    position: absolute;
+    width: 142.66px;
+    height: 42px;
+    left: 44%;
+    top: 30%;
+    
+    font-family: Arial, Helvetica, sans-serif;
+    
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    
+    color: #000000;
+    }
+    
+    #logInPassword {
+    
+    position: absolute;
+    width: 142.66px;
+    height: 42px;
+    left: 44%;
+    top: 45%;
+    
+    font-family: Arial, Helvetica, sans-serif;
+    
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    
+    color: #000000;
+    }
+    
+    #signUpInputs {
+        display:none;
+    }
+    
+    #logInInputs {
+        display:none;
+    }
+    
+    #initialBtns {
+        display: initial;
+    }
+    
+    
+    #backBtn {
+    display:none;
+    
+    position: absolute;
+    width: 76px;
+    height: 23.8px;
+    left: 45%;
+    top: 90%;
+    
+    background: #9CDA8D;
+    border: 2px solid #000000;
+    box-sizing: border-box;
+    border-radius: 8px;
+    }
+        #backBtn:hover {
+            background:#8ecde0;
+    
+        }

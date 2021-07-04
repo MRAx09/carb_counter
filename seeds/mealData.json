@@ -13,5 +13,5 @@
         "user_id": 1,
         "meal_name": "beans, rice, and kale with milk",
         "food_ids": [4, 8, 11, 12]
-    },
+    }
   ]
