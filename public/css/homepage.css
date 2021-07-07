@@ -1,8 +1,8 @@
 body {
     color: red;
     position:absolute;
-    font-family: 'Sriracha', cursive;
-    font-family: 'Amatic SC', cursive;
+    
+    font-family: 'Short Stack', cursive;
 
     background-repeat: no-repeat;
     background-image: url(../images/fruits.jpg);
@@ -77,4 +77,25 @@ color: #FFFFFF;
 
 
 text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#navBar {
+    background-color: rgb(85, 80, 85);
+    height:100px;
+    width: 1018px;
+    left: 4px;
+    top: 0;
+    opacity: 75%;
+   
+}
+
+.table {
+    font-family: 'Kanit';
+}
+.nav-item {
+    font-family: 'Kanit';
+}
+.form-control {
+        font-family: 'Kanit';
+
 }

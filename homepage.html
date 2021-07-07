@@ -21,7 +21,8 @@
         crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Short+Stack&family=Sriracha&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&family=Short+Stack&family=Sriracha&display=swap"
+        rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -32,202 +33,211 @@
 </head>
 
 <body>
-    <div id="logo">
-        Carbo-Loader
-    </div>
+    <nav>
+        <div id="logo">
+            Carbo-Loader
+        </div>
+
+        </header>
+
+        <!-- ❤️ -->
+
+        <div id="user">
+            <div class="dropdown">
+                <a class="dropdown-toggle btn-sm" id="dropDown" data-bs-toggle="dropdown"
+                    href="#">testuser@carboloader.com</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Log out.</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="logedIn">
+
+        </div>
+
+        <div id="leftWindow">
 
 
-    <div id="user">
-        <div class="dropdown">
-            <a class="dropdown-toggle btn-sm" id="dropDown" data-bs-toggle="dropdown"
-                href="#">testuser@carboloader.com</a>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Log out.</a></li>
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active link-secondary" id="search-tab" data-bs-toggle="tab"
+                        data-bs-target="#search" type="button" role="tab" aria-controls="search"
+                        aria-selected="true">Search</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link link-secondary" id="favorites-tab" data-bs-toggle="tab"
+                        data-bs-target="#favorites" type="button" role="tab" aria-controls="favorites"
+                        aria-selected="false">Favorite Foods</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link link-secondary" id="meals-tab" data-bs-toggle="tab" data-bs-target="#meals"
+                        type="button" role="tab" aria-controls="meals" aria-selected="false">Saved Meals</button>
+                </li>
             </ul>
-        </div>
-    </div>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="search" role="tabpanel" aria-labelledby="search-tab">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Enter the name of a food to search"
+                            aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-success" type="button" id="button-addon2">🔍</button>
+                    </div>
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Food Name</th>
+                                <th scope="col">Carbs</th>
 
-    <div id="logedIn">
+                            </tr>
+                        </thead>
 
-    </div>
+                        <tbody>
 
-    <div id="leftWindow">
+                            <tr>
+                                <td>Food Name 1</td>
+                                <td>Carb#</td>
 
 
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active link-success" id="search-tab" data-bs-toggle="tab"
-                    data-bs-target="#search" type="button" role="tab" aria-controls="search"
-                    aria-selected="true">Search</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link link-success" id="favorites-tab" data-bs-toggle="tab"
-                    data-bs-target="#favorites" type="button" role="tab" aria-controls="favorites"
-                    aria-selected="false">Favorite Foods</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link link-success" id="meals-tab" data-bs-toggle="tab" data-bs-target="#meals"
-                    type="button" role="tab" aria-controls="meals" aria-selected="false">Saved Meals</button>
-            </li>
-        </ul>
-        <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="search" role="tabpanel" aria-labelledby="search-tab">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Enter the name of a food to search"
-                        aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <button class="btn btn-outline-success" type="button" id="button-addon2">Search</button>
+                            </tr>
+
+                            <tr>
+                                <td>Food Name 2</td>
+                                <td>Carb#</td>
+                            </tr>
+
+                            <tr>
+                                <td> Food Name 3</td>
+                                <td>Carb#</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
                 </div>
-                <table class="table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">Food Name</th>
-                            <th scope="col">Carbs</th>
-                        </tr>
-                    </thead>
+                <div class="tab-pane fade" id="favorites" role="tabpanel" aria-labelledby="favorites-tab">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Food Name</th>
+                                <th scope="col">Carbs</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
 
-                    <tbody>
+                        <tbody>
 
-                        <tr>
-                            <td>Food Name 1</td>
-                            <td>Carb#</td>
+                            <tr>
+                                <td>Food Name 1</td>
+                                <td>Carb#</td>
+                                <td><button type="button" class="btn btn-sm btn-outline-danger">🗑️</button></td>
+                            </tr>
 
-                        </tr>
+                            <tr>
+                                <td>Food Name 2</td>
+                                <td>Carb#</td>
+                                <td><button type="button" class="btn btn-sm btn-outline-danger">🗑️</button></td>
+                            </tr>
 
-                        <tr>
-                            <td>Food Name 2</td>
-                            <td>Carb#</td>
-                        </tr>
+                            <tr>
+                                <td> Food Name 3</td>
+                                <td>Carb#</td>
+                                <td><button type="button" class="btn btn-sm btn-outline-danger">🗑️</button></td>
+                            </tr>
 
-                        <tr>
-                            <td> Food Name 3</td>
-                            <td>Carb#</td>
-                        </tr>
-
-                    </tbody>
-                </table>
-
-            </div>
-            <div class="tab-pane fade" id="favorites" role="tabpanel" aria-labelledby="favorites-tab">
-                <table class="table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">Food Name</th>
-                            <th scope="col">Carbs</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-
-                        <tr>
-                            <td>Food Name 1</td>
-                            <td>Carb#</td>
-                            <td><button type="button" class="btn btn-sm btn-success ">Delete</button></td>
-                        </tr>
-
-                        <tr>
-                            <td>Food Name 2</td>
-                            <td>Carb#</td>
-                            <td><button type="button" class="btn btn-sm btn-success">Delete</button></td>
-                        </tr>
-
-                        <tr>
-                            <td> Food Name 3</td>
-                            <td>Carb#</td>
-                            <td><button type="button" class="btn btn-sm btn-success">Delete</button></td>
-                        </tr>
-
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
 
 
-            </div>
-            <div class="tab-pane fade" id="meals" role="tabpanel" aria-labelledby="meals-tab">
-                <table class="table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">Meal Name</th>
-                            <th scope="col">Carbs</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
+                </div>
+                <div class="tab-pane fade" id="meals" role="tabpanel" aria-labelledby="meals-tab">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Meal Name</th>
+                                <th scope="col">Carbs</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
 
-                    <tbody>
+                        <tbody>
 
-                        <tr>
-                            <td>Meal Name 1</td>
-                            <td>Carb#</td>
-                            <td><button type="button" class="btn btn-sm btn-success">Delete</button></td>
-                        </tr>
+                            <tr>
+                                <td>Meal Name 1</td>
+                                <td>Carb#</td>
+                                <td><button type="button" class="btn btn-sm btn-outline-danger">🗑️</button></td>
+                            </tr>
 
-                        <tr>
-                            <td>Meal Name 2</td>
-                            <td>Carb#</td>
-                            <td><button type="button" class="btn btn-sm btn-success">Delete</button></td>
-                        </tr>
+                            <tr>
+                                <td>Meal Name 2</td>
+                                <td>Carb#</td>
+                                <td><button type="button" class="btn btn-sm btn-outline-danger">🗑️</button></td>
+                            </tr>
 
-                        <tr>
-                            <td> Meal Name 3</td>
-                            <td>Carb#</td>
-                            <td><button type="button" class="btn btn-sm btn-success">Delete</button></td>
-                        </tr>
+                            <tr>
+                                <td> Meal Name 3</td>
+                                <td>Carb#</td>
+                                <td><button type="button" class="btn btn-sm btn-outline-danger">🗑️</button></td>
+                            </tr>
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
 
 
+                </div>
             </div>
         </div>
-    </div>
 
 
-    <div id="rightWindow">
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Enter meal name." aria-label="Recipient's username"
-                aria-describedby="button-addon2">
-            <button class="btn btn-outline-success" type="button" id="button-addon2">Save Meal</button>
+        <div id="rightWindow">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Enter meal name." aria-label="Recipient's username"
+                    aria-describedby="button-addon2">
+                <button class="btn btn-outline-success" type="button" id="button-addon2">💾</button>
+            </div>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Food Name</th>
+
+                        <th scope="col">Carbs:(total)</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Food Name 1</td>
+                        <td>Carb#</td>
+                        <td><button type="button" class="btn btn-sm btn-outline-success ">❤️</button></td>
+
+                        <td><button type="button" class="btn btn-sm btn-outline-danger">🗑️</button></td>
+
+                    </tr>
+
+                    <tr>
+                        <td>Food Name 2</td>
+                        <td>Carb#</td>
+                        <td><button type="button" class="btn btn-sm btn-outline-success ">❤️</button></td>
+                        <td><button type="button" class="btn btn-sm btn-outline-danger">🗑️</button></td>
+
+                    </tr>
+
+                    <tr>
+                        <td> Food Name 3</td>
+                        <td>Carb#</td>
+                        <td><button type="button" class="btn btn-sm btn-outline-success  ">❤️</button></td>
+                        <td><button type="button" class="btn btn-sm btn-outline-danger">🗑️</button></td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+
         </div>
-        <table class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">Food Name</th>
 
-                    <th scope="col">Carbs:(total)</th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-
-            <tbody>
-
-                <tr>
-                    <td>Food Name 1</td>
-                    <td>Carb#</td>
-                    <td><button type="button"
-                            class="btn btn-sm btn-success hover-overlay ripple shadow-1-strong">Delete</button>
-                    </td>
-
-                </tr>
-
-                <tr>
-                    <td>Food Name 2</td>
-                    <td>Carb#</td>
-                    <td><button type="button" class="btn btn-sm btn-success">Delete</button></td>
-
-                </tr>
-
-                <tr>
-                    <td> Food Name 3</td>
-                    <td>Carb#</td>
-                    <td><button type="button" class="btn btn-sm btn-success">Delete</button></td>
-
-                </tr>
-
-            </tbody>
-        </table>
-
-    </div>
-
-    <script src="./public/js/index.js"></script>
+        <script src="./public/js/index.js"></script>
 </body>
 
 </html>
