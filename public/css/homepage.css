@@ -1,0 +1,80 @@
+body {
+    color: red;
+    position:absolute;
+    font-family: 'Sriracha', cursive;
+    font-family: 'Amatic SC', cursive;
+
+    background-repeat: no-repeat;
+    background-image: url(../images/fruits.jpg);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+a {
+    text-decoration: none;
+}
+#leftWindow {
+
+    position: absolute;
+    width: 417px;
+    height: 368px;
+    left: 62px;
+    top: 136px;
+
+
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: #F7FFFF;
+    border-radius: 10px;
+}
+
+#rightWindow {
+    position: absolute;
+    width: 417px;
+    height: 368px;
+    left: 541px;
+    top: 136px;
+
+    background: #F6FFFF;
+    border-radius: 10px;
+
+
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#logo {
+
+position: absolute;
+width: 328px;
+height: 97px;
+left: 108px;
+top: 31px;
+
+font-family: Sriracha;
+font-style: normal;
+font-weight: normal;
+font-size: 55px;
+line-height: 97px;
+
+color: #FFFFFF;
+
+
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#dropDown {
+text-decoration: none;
+position: absolute;
+width: 306px;
+height: 45px;
+left: 595px;
+top: 53px;
+
+font-family: Sriracha;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 64px;
+
+color: #FFFFFF;
+
+
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
