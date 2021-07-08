@@ -1,6 +1,7 @@
 var nameTxt = $("#nameTxt");
 var flavorTxt = $("#flavor-txt");
 
+var background = $("#background")
 var initialBtns = $("#initialBtns")
 var signUpInputs = $("#signUpInputs")
 var logInInputs = $("#logInInputs")
@@ -23,8 +24,13 @@ var userNameInput = $("#userNameInput");
 var logInPassword = $("#logInPassword");
 var passwordInput = $("#passwordInput");
 
-var backBtn = $("#backBtn")
-
+var mainPage = $("#mainPage");
+var backBtn = $("#backBtn");
+var logo = $("#logo");
+var leftWindow = $("#leftWindow");
+var rightWindow = $("#rightWindow");
+var landingLogo = $("#landingLogo");
+var dropDown = $("#dropDown");
 
 showSignUpBtn.on("click", function showSignUp(e) {
     e.preventDefault();
@@ -58,4 +64,15 @@ backBtn.on("click", function back(e) {
 var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
 var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
     return new bootstrap.Dropdown(dropdownToggleEl)
+})
+
+logInBtn.on("click", function logIn(e) {
+    e.preventDefault();
+    background.css("display", "none");
+    mainPage.css("display", "initial");
+    leftWindow.css("display", "initial");
+    rightWindow.css("display", "initial");
+    dropDown.css("display", "initial");
+    logo.css("display", "initial");
+    landingLogo.css("display", "none");
 })
