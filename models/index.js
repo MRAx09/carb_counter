@@ -16,9 +16,9 @@ Meal.hasMany(Food, {
     // onDelete: 'CASCADE'
   });
   
-Food.belongsToMany(Meal, {
-    // foreignKey: 'user_id'
-    //need a through,  third table?
-  });
+// Food.belongsToMany(Meal, {
+//     // foreignKey: 'user_id'
+//     //need a through,  third table?
+//   });
 
 module.exports = { Food, Meal, User };
