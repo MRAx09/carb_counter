@@ -3,7 +3,7 @@ const { Food, Meal, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     //Home page shoud show list of favorite foods, might also need a route for current meal.
     //do we need separate table for current meal or should we use local storage for that?

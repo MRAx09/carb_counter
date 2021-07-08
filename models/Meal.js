@@ -1,4 +1,4 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes, Sequelize } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Meal extends Model {}
@@ -29,9 +29,16 @@ Meal.init(
         allowNull: true,
     },
     // food_ids: {
-    //     type: DataTypes.ARRAY,
-    //     allowNull: false,
-    // },
+    //   type: Sequelize.STRING,
+    //   allowNull: false,
+    //   get() {
+    //     return this.getDataValue('')
+    //   }
+    // }
+
+
+
+
     // total_carbohydrates: {
     //     type: DataTypes.INTEGER,
     //     allowNull: false,
