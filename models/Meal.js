@@ -28,10 +28,10 @@ Meal.init(
         type: DataTypes.STRING,
         allowNull: true,
     },
-    food_ids: {
-        type: DataTypes.ARRAY,
-        allowNull: false,
-    },
+    // food_ids: {
+    //     type: DataTypes.ARRAY,
+    //     allowNull: false,
+    // },
     // total_carbohydrates: {
     //     type: DataTypes.INTEGER,
     //     allowNull: false,

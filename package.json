@@ -2,10 +2,10 @@
   "name": "carb_counter",
   "version": "1.0.0",
   "description": "### Features: - Users are able to calculate their carbohydrate intake. - Users can store their intake and keep track. - Ablility to find foods from a database and read nutritional data.",
-  "main": "script.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node script.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -19,9 +19,11 @@
   "homepage": "https://github.com/MRAx09/carb_counter#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.3.2",
+    "express-session": "^1.17.2",
     "mysql2": "^2.2.5",
     "sequelize": "^6.6.4"
   }
