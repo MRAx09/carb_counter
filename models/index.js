@@ -1,6 +1,7 @@
 const User = require('./User');
 const Food = require('./Food');
 const Meal = require('./Meal');
+const Mealfood = require('./Mealfood');
 
 User.hasMany(Meal, {
   foreignKey: 'user_id',
@@ -12,13 +13,16 @@ Meal.belongsTo(User, {
 });
 
 Meal.hasMany(Food, {
-    // foreignKey: 'user_id',
-    // onDelete: 'CASCADE'
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
   });
   
-// Food.belongsToMany(Meal, {
-//     // foreignKey: 'user_id'
-//     //need a through,  third table?
-//   });
+Food.belongsToMany(Meal, {
+    through: Mealfood
+  });
+
+Meal.belongsToMany(Food, {
+    through: Mealfood
+  });
 
 module.exports = { Food, Meal, User };

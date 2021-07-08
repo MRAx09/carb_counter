@@ -45,7 +45,8 @@
     {
         "food_name": "apple, 1 medium",
         "total_carbohydrates": 14,
-        "fiber": 2
+        "fiber": 2,
+        "favorite": true
     },
     {
         "food_name": "brown rice, 1/2  cup",
@@ -55,7 +56,8 @@
     {
         "food_name": "kale, chopped 1 cup",
         "total_carbohydrates": 7,
-        "fiber": 3
+        "fiber": 3,
+        "favorite": true
     }
   ]
   
