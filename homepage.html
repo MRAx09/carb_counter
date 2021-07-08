@@ -36,12 +36,16 @@
 <body>
     <!-- Log in section-->
     <div id="background">
+
         <div id="initialBtns">
+
             <button id="showLogInBtn">log in</button>
             <button id="showSignUpBtn">sign up</button>
+
         </div>
         <!-- Sign up inputs -->
         <div id="signUpInputs">
+
             <p id="newUserName">user name</p>
             <input type="text" id="createUserNameInput"></input>
 
@@ -51,22 +55,21 @@
             <p id="confirmPw">confirm password</p>
             <input type="text" id="confirmPasswordInput"></input>
             <button id="createAcntBtn">create account</button>
+
         </div>
         <!-- log in inputs -->
         <div id="logInInputs">
+
             <p id="logInUserName">user name</p>
             <input type="text" id="userNameInput"></input>
 
             <p id="logInPassword">password</p>
             <input type="text" id="passwordInput"></input>
             <button id="logInBtn">log in</button>
+
         </div>
 
         <button id="backBtn">back</button>
-
-
-
-    </div>
 
     </div>
 
@@ -76,72 +79,89 @@
     </div>
     <!-- ------------- -->
 
-
-
-
     <!-- Main page section -->
     <div id="mainPage">
+
         <div id="logo">
             Carbo-Loader
         </div>
 
         <div id="user">
+
             <div class="dropdown">
+
                 <a class="dropdown-toggle btn-sm" id="dropDown" data-bs-toggle="dropdown"
                     href="#">testuser@carboloader.com</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Log out.</a></li>
+
+                    <li><a class="dropdown-item" href="#">Log out.</a>
+                    </li>
+
                 </ul>
+
             </div>
+
         </div>
 
-        <div id="logedIn">
+        <!-- <div id="logedIn">
+
+        </div> -->
+
+        <div id="searchDiv">
+
+            <div class="input-group mb-3">
+
+                <input type="text" class="form-control" placeholder="Enter the name of a food to search"
+                    aria-label="Recipient's username" aria-describedby="button-addon2">
+
+                <button class="btn btn-outline-success" type="button" id="button-addon2">🔍</button>
+
+            </div>
 
         </div>
 
         <div id="leftWindow">
 
             <ul class="nav nav-tabs" id="myTab" role="tablist">
+
                 <li class="nav-item" role="presentation">
+
                     <button class="nav-link link-secondary" id="search-tab" data-bs-toggle="tab"
                         data-bs-target="#search" type="button" role="tab" aria-controls="search"
-                        aria-selected="true">Search</button>
+                        aria-selected="true">Search Results</button>
                 </li>
+
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active link-secondary" id="favorites-tab" data-bs-toggle="tab"
+
+                    <button class="nav-link link-secondary" id="favorites-tab" data-bs-toggle="tab"
                         data-bs-target="#favorites" type="button" role="tab" aria-controls="favorites"
                         aria-selected="false">Favorite Foods</button>
                 </li>
+
                 <li class="nav-item" role="presentation">
+
                     <button class="nav-link link-secondary" id="meals-tab" data-bs-toggle="tab" data-bs-target="#meals"
                         type="button" role="tab" aria-controls="meals" aria-selected="false">Saved Meals</button>
                 </li>
+
             </ul>
 
             <div class="tab-content" id="myTabContent">
 
                 <div class="tab-pane fade show active" id="search" role="tabpanel" aria-labelledby="search-tab">
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Enter the name of a food to search"
-                            aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <button class="btn btn-outline-success" type="button" id="button-addon2">🔍</button>
-                    </div>
+
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
                                 <th scope="col">Food Name</th>
                                 <th scope="col">Carbs</th>
-
                             </tr>
                         </thead>
 
                         <tbody>
-
                             <tr>
                                 <td>Food Name 1</td>
                                 <td>Carb#</td>
-
-
                             </tr>
 
                             <tr>
@@ -158,13 +178,14 @@
                     </table>
 
                 </div>
+
                 <div class="tab-pane fade" id="favorites" role="tabpanel" aria-labelledby="favorites-tab">
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
                                 <th scope="col">Food Name</th>
                                 <th scope="col">Carbs</th>
-                                <th scope="col"></th>
+                                <th scope="col"> Delete</th>
                             </tr>
                         </thead>
 
@@ -189,17 +210,21 @@
                             </tr>
 
                         </tbody>
+
                     </table>
 
 
                 </div>
+
                 <div class="tab-pane fade" id="meals" role="tabpanel" aria-labelledby="meals-tab">
+
                     <table class="table table-striped table-hover">
+
                         <thead>
                             <tr>
                                 <th scope="col">Meal Name</th>
                                 <th scope="col">Carbs</th>
-                                <th scope="col"></th>
+                                <th scope="col"> Delete</th>
                             </tr>
                         </thead>
 
@@ -224,11 +249,14 @@
                             </tr>
 
                         </tbody>
+
                     </table>
 
 
                 </div>
+
             </div>
+
         </div>
 
 
@@ -242,10 +270,10 @@
                 <thead>
                     <tr>
                         <th scope="col">Food Name</th>
-
                         <th scope="col">Carbs:(total)</th>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
+                        <th scope="col">Add Fav.</th>
+                        <th scope="col"> Delete</th>
+
                     </tr>
                 </thead>
 
@@ -277,12 +305,14 @@
                     </tr>
 
                 </tbody>
+
             </table>
 
         </div>
-        <!-- ------------- -->
 
     </div>
+    <!-- ------------- -->
+
     <script src="./public/js/index.js"></script>
 </body>
 

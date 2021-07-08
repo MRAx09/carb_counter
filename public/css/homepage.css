@@ -8,22 +8,35 @@ body {
     background-image: url(../images/fruits.jpg);
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
+
 a {
     text-decoration: none;
 }
 
-
 /* ----Main Page---- */
+#searchDiv {
+    display:none;
+
+    position: absolute;
+    position: absolute;
+    width: 417px;
+    height: 38px;
+    left: 62px;
+    top: 128px;
+
+    background: #F7FFFF;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
 #leftWindow {
-    
+    overflow: auto;
     display: none;
 
     position: absolute;
     width: 417px;
-    height: 368px;
+    height: 360px;
     left: 62px;
-    top: 136px;
-
+    top: 177px;
 
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     background: #F7FFFF;
@@ -31,14 +44,15 @@ a {
 }
 
 #rightWindow {
-
     display: none;
 
+    overflow: auto;
+    
     position: absolute;
     width: 417px;
-    height: 368px;
-    left: 541px;
-    top: 136px;
+    height: 409px;
+    left: 544px;
+    top: 128px;
 
     background: #F6FFFF;
     border-radius: 10px;
@@ -116,6 +130,7 @@ text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 .table {
     font-family: 'Kanit';
+    empty-cells:hide;
 }
 .nav-item {
     font-family: 'Kanit';

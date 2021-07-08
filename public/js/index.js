@@ -32,6 +32,8 @@ var rightWindow = $("#rightWindow");
 var landingLogo = $("#landingLogo");
 var dropDown = $("#dropDown");
 
+var searchDiv = $("#searchDiv")
+
 showSignUpBtn.on("click", function showSignUp(e) {
     e.preventDefault();
     flavorTxt.css("display", "none");
@@ -75,4 +77,5 @@ logInBtn.on("click", function logIn(e) {
     dropDown.css("display", "initial");
     logo.css("display", "initial");
     landingLogo.css("display", "none");
+    searchDiv.css("display", "initial")
 })
