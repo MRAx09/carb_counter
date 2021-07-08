@@ -16,10 +16,10 @@ router.get('/', async (req, res) => {
     const favorites = favData.map((food) => food.get({ plain: true }));
     console.log(favorites);
 
-    // res.render('homepage', {
-    //   ...favorites,
-    //   logged_in: req.session.logged_in
-    // });
+    res.render('homepage', {
+      ...favorites,
+      logged_in: req.session.logged_in
+    });
   } catch (err) {
     res.status(500).json(err);
   }
