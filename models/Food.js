@@ -15,25 +15,38 @@ Food.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    total_carbohydrates: {
-        type: DataTypes.INTEGER,
+    serving_qty: {
+      type: DataTypes.DECIMAL,
+      allowNull: true,
+      validate: {
+        isDecimal: true,
+      },
+    },
+    serving_unit: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    serving_weight_grams: {
+      type: DataTypes.DECIMAL,
+      allowNull: true,
+      validate: {
+        isDecimal: true,
+      },
+    },
+    nf_total_carbohydrates: {
+        type: DataTypes.DECIMAL,
         allowNull: false,
         validate: {
-            isNumeric: true,
+            isDecimal: true,
         },
     },
-    fiber: {
-        type: DataTypes.INTEGER,
+    nf_dietary_fiber: {
+        type: DataTypes.DECIMAL,
         allowNull: false,
         defaultValue: 0,
         validate: {
-            isNumeric: true,
+            isDecimal: true,
         },
-    },
-    favorite: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        defaultValue: false,
     },
   },
   {

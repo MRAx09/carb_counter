@@ -1,9 +1,11 @@
 const sequelize = require('../config/connection');
-const { User, Food, Meal } = require('../models');
+const { User, Food, Meal, Mealfood, Favorite } = require('../models');
 
 const userData = require('./userData.json');
 const foodData = require('./foodData.json');
 const mealData = require('./mealData.json');
+const mealfoodData = require('./mealfoodData.json');
+const favoriteData = require('./favoriteData.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -24,6 +26,17 @@ const seedDatabase = async () => {
       user_id: users[Math.floor(Math.random() * users.length)].id,
     });
   }
+
+  const mealfoods = await Mealfood.bulkCreate(mealfoodData, {
+    individualHooks: true,
+    returning: true,
+  });
+
+  const favorites = await Favorite.bulkCreate(favoriteData, {
+    individualHooks: true,
+    returning: true,
+  });
+
 
   process.exit(0);
 };

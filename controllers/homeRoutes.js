@@ -1,32 +1,61 @@
 const router = require('express').Router();
-const { Food, Meal, User } = require('../models');
+const { Food, Meal, User, Mealfood, Favorite } = require('../models');
 const withAuth = require('../utils/auth');
 
-
 router.get('/', async (req, res) => {
+  
+    const testData = await Food.findAll().catch((err) => {
+      res.json(err);
+    });
+    const datas = testData.map((food) => food.get({ plain: true }));
+    
+    console.log(datas);
+
+    res.render('favorites', { datas });
+});
+
+router.get('/favorites', async (req, res) => {
   try {
-    //Home page shoud show list of favorite foods, might also need a route for current meal.
-    //do we need separate table for current meal or should we use local storage for that?
-    const favData = await Food.findAll({
-      where: {
-        favorite: true
-      }
+    // console.log(req.session.user_id)
+    const favData = await Favorite.findAll({
+        // include: {
+        //   model: food,
+        //   attributes: ['food_name']
+        // }
+        
+        where: {
+          //user_id: req.session.user_id
+          user_id: 1
+          // attributes: ["food_id"],
+          // include: {
+          //   model: Food
+          }
+        
+      //   // include: {
+      //   //   model: Food,
+      //   //   attributes: ["food name"]
+      //   // }
+      // },
+    
     });
+  
 
-    const favorites = favData.map((food) => food.get({ plain: true }));
-    console.log(favorites);
+  const favorites = favData.map((food) => food.get({ plain: true }));
+  console.log(favorites)
 
-    res.render('homepage', {
-      ...favorites,
-      logged_in: req.session.logged_in
-    });
+  res.render('homepage', {
+    ...favorites,
+    logged_in: req.session.logged_in
+  });
+   
   } catch (err) {
-    res.status(500).json(err);
+      res.status(500).json(err)
   }
 });
 
 router.get('/food/:id', async (req, res) => {
     try {
+      console.log(req.params)
       const foodData = await Food.findByPk(req.params.id);
   
       const food = foodData.get({ plain: true });
