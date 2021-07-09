@@ -32,6 +32,7 @@ var rightWindow = $("#rightWindow");
 var landingLogo = $("#landingLogo");
 var dropDown = $("#dropDown");
 
+var mealName = $("#mealName")
 var searchDiv = $("#searchDiv")
 
 showSignUpBtn.on("click", function showSignUp(e) {
@@ -78,4 +79,5 @@ logInBtn.on("click", function logIn(e) {
     logo.css("display", "initial");
     landingLogo.css("display", "none");
     searchDiv.css("display", "initial")
+    mealName.css("display", "initial");
 })

@@ -2,10 +2,13 @@ body {
     color: red;
     position:absolute;
     
+    font-size: 12px;
     font-family: 'Short Stack', cursive;
 
     background-repeat: no-repeat;
-    background-image: url(../images/fruits.jpg);
+    background-image: url(../images/hand-drawn-fresh-bread-sesame-bun-pretzel-and-french-loaf-sketch-bakery-breads-vector-illustration-s.jpeg);
+    background-size:1024px 576px;
+    
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
@@ -18,7 +21,6 @@ a {
     display:none;
 
     position: absolute;
-    position: absolute;
     width: 417px;
     height: 38px;
     left: 62px;
@@ -27,6 +29,21 @@ a {
     background: #F7FFFF;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
+}
+
+#mealName {
+    display:none;
+
+    position: absolute;
+    width: 417px;
+    height: 38px;
+    left: 544px;
+    top: 128px;
+
+    background: #F7FFFF;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+
 }
 #leftWindow {
     overflow: auto;
@@ -50,9 +67,9 @@ a {
     
     position: absolute;
     width: 417px;
-    height: 409px;
+    height: 360px;
     left: 544px;
-    top: 128px;
+    top: 177px;
 
     background: #F6FFFF;
     border-radius: 10px;
@@ -129,14 +146,15 @@ text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 
 .table {
-    font-family: 'Kanit';
+    font-family: 'Short Stack';
     empty-cells:hide;
+    font-size: 12px;
 }
 .nav-item {
-    font-family: 'Kanit';
+    font-family: 'Short Stack';
 }
 .form-control {
-        font-family: 'Kanit';
+        font-family: 'Short Stack';
 
 }
 /* ---------------  */
