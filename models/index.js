@@ -2,6 +2,7 @@ const User = require('./User');
 const Food = require('./Food');
 const Meal = require('./Meal');
 const Mealfood = require('./Mealfood');
+const Favorite = require('./Favorite');
 
 User.hasMany(Meal, {
   foreignKey: 'user_id',
@@ -18,11 +19,27 @@ User.hasMany(Meal, {
 //   });
   
 Food.belongsToMany(Meal, {
-    through: Mealfood
+    through: Mealfood,
+    // as: 'meals',
+    // foreignKey: 'food_id'
   });
 
 Meal.belongsToMany(Food, {
-    through: Mealfood
+    through: Mealfood,
+    // as: 'foods',
+    // foreignKey: 'meal_id'
   });
 
-module.exports = { Food, Meal, User };
+User.belongsToMany(Food, {
+  through: Favorite,
+  // as: 'foods',
+  // foreignKey: 'user_id'
+});
+
+Food.belongsToMany(User, {
+  through: Favorite,
+  // as: 'users',
+  // foreignKey: 'food_id'
+})
+
+module.exports = { Food, Meal, User, Mealfood, Favorite };

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Food, Meal, User } = require('../models');
+const { Food, Meal, User, Mealfood, Favorite } = require('../models');
 const withAuth = require('../utils/auth');
 
 
@@ -12,6 +12,8 @@ router.get('/', async (req, res) => {
     const foods = foodData.map((food) => food.get({ plain: true }));
 
     res.render('homepage', {   // ***Should this really go to homepage.handlebars, or should it go to favorites.handlebars
+      //this is just a test to see if we could get a route to find all foods.  favorites.handlebars file won't be needed, 
+      //we will put the list of a user's favorites in the homepage.handlebars. 
       ...foods,  
       logged_in: req.session.logged_in
     });
@@ -24,6 +26,7 @@ router.get('/', async (req, res) => {
 
 router.get('/food/:id', async (req, res) => {
     try {
+      console.log(req.params)
       const foodData = await Food.findByPk(req.params.id);
   
       const food = foodData.get({ plain: true });
