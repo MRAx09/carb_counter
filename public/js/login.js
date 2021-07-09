@@ -16,17 +16,12 @@ const loginFormHandler = async (event) => {
 
     if (response.ok) {
       document.location.replace('/');
-      alert('Logged in***********');   // ********Remove this eventually
+      alert('Logged in');   // ********Remove this eventually
     } else {
       alert('Failed to log in.');
     }
   }
 };
-
-console.log('wwwwwwwwwwwwwww');    // ********Remove this eventually
-console.log(document);         // ********Remove this eventually
-console.log('********sign-up form');       // ********Remove this eventually
-console.log(document.querySelector('.login-form'))       // ********Remove this eventually
 
 document
   .querySelector('.login-form')
