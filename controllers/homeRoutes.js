@@ -2,56 +2,27 @@ const router = require('express').Router();
 const { Food, Meal, User, Mealfood, Favorite } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
-  
-    const testData = await Food.findAll().catch((err) => {
-      res.json(err);
-    });
-    const datas = testData.map((food) => food.get({ plain: true }));
-    
-    console.log(datas);
 
-    res.render('favorites', { datas });
-});
-
-router.get('/favorites', async (req, res) => {
+router.get('/', async (req, res) => {  
   try {
-    // console.log(req.session.user_id)
-    const favData = await Favorite.findAll({
-        // include: {
-        //   model: food,
-        //   attributes: ['food_name']
-        // }
-        
-        where: {
-          //user_id: req.session.user_id
-          user_id: 1
-          // attributes: ["food_id"],
-          // include: {
-          //   model: Food
-          }
-        
-      //   // include: {
-      //   //   model: Food,
-      //   //   attributes: ["food name"]
-      //   // }
-      // },
-    
+    //Home page should show list of favorite foods, might also need a route for current meal.
+    //do we need separate table for current meal or should we use local storage for that?
+    const foodData = await Food.findAll();
+
+    const foods = foodData.map((food) => food.get({ plain: true }));
+
+    res.render('homepage', {   // ***Should this really go to homepage.handlebars, or should it go to favorites.handlebars
+      //this is just a test to see if we could get a route to find all foods.  favorites.handlebars file won't be needed, 
+      //we will put the list of a user's favorites in the homepage.handlebars. 
+      ...foods,  
+      logged_in: req.session.logged_in
     });
-  
-
-  const favorites = favData.map((food) => food.get({ plain: true }));
-  console.log(favorites)
-
-  res.render('homepage', {
-    ...favorites,
-    logged_in: req.session.logged_in
-  });
-   
   } catch (err) {
-      res.status(500).json(err)
+    console.log(err);
+    res.status(500).json(err);
   }
 });
+
 
 router.get('/food/:id', async (req, res) => {
     try {
@@ -91,34 +62,44 @@ router.get('/meal/:id', async (req, res) => {
   }
 });
 
-// Use withAuth middleware to prevent access to route
-router.get('/profile', withAuth, async (req, res) => {
-  try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Meal }],
-    });
+// *******There is no "/profile" handlebars page. We'll probably want to remove this
+// router.get('/profile', withAuth, async (req, res) => {
+//   try {
+//     // Find the logged in user based on the session ID
+//     const userData = await User.findByPk(req.session.user_id, {
+//       attributes: { exclude: ['password'] },
+//       include: [{ model: Meal }],
+//     });
 
-    const user = userData.get({ plain: true });
+//     const user = userData.get({ plain: true });
 
-    res.render('profile', {
-      ...user,
-      logged_in: true
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     res.render('profile', {
+//       ...user,
+//       logged_in: true
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    alert(`Excelsior: ${req.session.logged_in} <--`);
+    res.redirect('/homepage');
     return;
   }
 
   res.render('login');
+});
+
+router.get('/signup', (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('signup');
 });
 
 module.exports = router;
