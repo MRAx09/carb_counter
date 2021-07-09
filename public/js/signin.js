@@ -27,15 +27,6 @@ const signupFormHandler = async (event) => {
   }
 };
 
-// console.log('wwwwwwwwwwwwwww');
-// console.log(document);
-// console.log('********sign-up form');
-// console.log(document.querySelector('.signup-form'))
-
-// document
-//   .querySelector('.login-form')
-//   .addEventListener('submit', loginFormHandler);
-
 document
   .querySelector('.signup-form')
   .addEventListener('submit', signupFormHandler);
