@@ -1,6 +1,9 @@
 var nameTxt = $("#nameTxt");
 var flavorTxt = $("#flavor-txt");
 
+var deleteBtn = $(".deleteBtn");
+var addFavButton = $(".addFavButton")
+
 var background = $("#background")
 var initialBtns = $("#initialBtns")
 var signUpInputs = $("#signUpInputs")
@@ -34,6 +37,31 @@ var dropDown = $("#dropDown");
 
 var mealName = $("#mealName")
 var searchDiv = $("#searchDiv")
+
+var favorites = $("#favorites")
+let table = $(".table");
+
+// delete row item function
+deleteBtn.click(function () {
+    $(this).closest('tr').addClass('selected');
+    $('tr.selected').remove();
+});
+
+addFavButton.click(function () {
+    // let row = $(this).closest('tr')
+    // console.log(row)
+    // row.appendTo(favorites)
+    // need to exclude buttons and include formatting
+    $(".add-row").click(function () {
+        markup = "<tr><td>This is row "
+            + lineNo + "</td></tr>";
+        tableBody = $("table tbody");
+        tableBody.append(markup);
+        lineNo++;
+    });
+});
+
+
 
 showSignUpBtn.on("click", function showSignUp(e) {
     e.preventDefault();

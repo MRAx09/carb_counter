@@ -4,7 +4,7 @@ body {
     
     font-size: 12px;
     font-family: 'Short Stack', cursive;
-
+    
     background-repeat: no-repeat;
     background-image: url(../images/breadbackground.jpeg);
     background-size:1024px 625px;
@@ -99,12 +99,15 @@ color: #FFFFFF;
 text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.nav-link {
+    font-size: 13px;
+}
 #logoImage {
 position: absolute;
-width: 230px;
+width: 270px; 
 height: 130px;
 
-left: 50px;
+left: 35px;
 top:-10px;
 
 }
