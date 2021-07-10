@@ -7,16 +7,53 @@ router.get('/', async (req, res) => {
   try {
     //Home page should show list of favorite foods, might also need a route for current meal.
     //do we need separate table for current meal or should we use local storage for that?
-    const foodData = await Food.findAll();
 
-    const foods = foodData.map((food) => food.get({ plain: true }));
 
-    res.render('homepage', {   // ***Should this really go to homepage.handlebars, or should it go to favorites.handlebars
-      //this is just a test to see if we could get a route to find all foods.  favorites.handlebars file won't be needed, 
-      //we will put the list of a user's favorites in the homepage.handlebars. 
-      ...foods,  
-      logged_in: req.session.logged_in
-    });
+    if (!req.session.logged_in) {
+      res.render('homepage');
+    } else {
+      const userData = await User.findAll( {
+        where: [{
+          id: req.session.user_id,
+        }],
+        include: [{
+          model: Food,
+          as: 'user_foods',
+          required: 'false',
+        }]
+      }); 
+
+      const userNm = await User.findAll( {
+        where: [{
+          id: req.session.user_id
+        }]
+      });
+
+      // console.log(userNm);
+      // console.log('~~~~~~~~~~~~');
+      const usersName = userNm[0].dataValues.name;
+
+      // console.log(usersName);
+
+      const favorites = userData.map((fav) => fav.get({ plain: true}));
+      // console.log('********');
+      // console.log(favorites[0]);
+      // console.log(userData);
+      if (userData === undefined || userData.length == 0) {
+        res.render('homepage', {logged_in: req.session.logged_in});
+      } else {
+      const userFoods = favorites[0].user_foods; 
+
+      if (userFoods) {
+        res.render('homepage', {   
+          userFoods,
+          logged_in: req.session.logged_in,
+        });
+      } else {  
+        res.render('homepage', {logged_in: req.session.logged_in});
+        // res.render('homepage', {logged_in: req.session.logged_in, userName: usersName});
+      }
+    }}
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -62,35 +99,14 @@ router.get('/meal/:id', async (req, res) => {
   }
 });
 
-// *******There is no "/profile" handlebars page. We'll probably want to remove this
-// router.get('/profile', withAuth, async (req, res) => {
-//   try {
-//     // Find the logged in user based on the session ID
-//     const userData = await User.findByPk(req.session.user_id, {
-//       attributes: { exclude: ['password'] },
-//       include: [{ model: Meal }],
-//     });
-
-//     const user = userData.get({ plain: true });
-
-//     res.render('profile', {
-//       ...user,
-//       logged_in: true
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    alert(`Excelsior: ${req.session.logged_in} <--`);
     res.redirect('/homepage');
     return;
   }
-
-  res.render('login');
+  const onLoginPage = true;
+  res.render('login', { onLoginPage });
 });
 
 router.get('/signup', (req, res) => {
@@ -98,8 +114,8 @@ router.get('/signup', (req, res) => {
     res.redirect('/');
     return;
   }
-
-  res.render('signup');
+  const onSignupPage = true;
+  res.render('signup', { onSignupPage }); 
 });
 
 module.exports = router;

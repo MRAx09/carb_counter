@@ -1,7 +1,6 @@
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
-  console.log('yyyyyyyyyyyyyyyyy');
   console.log(event);
 
   const email = document.querySelector('#email-login').value.trim();
@@ -16,10 +15,12 @@ const loginFormHandler = async (event) => {
 
     if (response.ok) {
       document.location.replace('/');
-      alert('Logged in');   // ********Remove this eventually
+      alert('Logged in');   
     } else {
       alert('Failed to log in.');
     }
+  } else {
+    alert('Enter an email and a password.');
   }
 };
 
