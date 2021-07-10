@@ -41,6 +41,8 @@ var searchDiv = $("#searchDiv")
 var favorites = $("#favorites")
 let table = $(".table");
 
+var loggedInDisplay = $("#loggedInDisplay")
+
 // delete row item function
 deleteBtn.click(function () {
     $(this).closest('tr').addClass('selected');
@@ -108,4 +110,5 @@ logInBtn.on("click", function logIn(e) {
     landingLogo.css("display", "none");
     searchDiv.css("display", "initial")
     mealName.css("display", "initial");
+    loggedInDisplay.css("display", "initial");
 })
