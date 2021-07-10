@@ -75,7 +75,7 @@
 
 
     <div id="landingLogo">
-        Carbo-Loader
+        <img id="landingLogoImage" src="public/images/carboLoaderLogo.png">
     </div>
     <!-- ------------- -->
 
@@ -83,15 +83,17 @@
     <div id="mainPage">
 
         <div id="logo">
-            Carbo-Loader
+            <img id="logoImage" src="public/images/carboLoaderLogo.png">
         </div>
 
         <div id="user">
 
             <div class="dropdown">
-
-                <a class="dropdown-toggle btn-sm" id="dropDown" data-bs-toggle="dropdown"
+                <div id="loggedInDisplay"></div>
+                <a class="dropdown-toggle- btn-sm" id="dropDown" data-bs-toggle="dropdown"
                     href="#">testuser@carboloader.com</a>
+
+
                 <ul class="dropdown-menu">
 
                     <li><a class="dropdown-item" href="#">Log out.</a>
@@ -126,21 +128,20 @@
 
                 <li class="nav-item" role="presentation">
 
-                    <button class="nav-link link-secondary" id="search-tab" data-bs-toggle="tab"
-                        data-bs-target="#search" type="button" role="tab" aria-controls="search"
-                        aria-selected="true">Search Results</button>
+                    <button class="nav-link link-success" id="search-tab" data-bs-toggle="tab" data-bs-target="#search"
+                        type="button" role="tab" aria-controls="search" aria-selected="true">Search Results</button>
                 </li>
 
                 <li class="nav-item" role="presentation">
 
-                    <button class="nav-link link-secondary" id="favorites-tab" data-bs-toggle="tab"
+                    <button class="nav-link link-success" id="favorites-tab" data-bs-toggle="tab"
                         data-bs-target="#favorites" type="button" role="tab" aria-controls="favorites"
                         aria-selected="false">Favorite Foods</button>
                 </li>
 
                 <li class="nav-item" role="presentation">
 
-                    <button class="nav-link link-secondary" id="meals-tab" data-bs-toggle="tab" data-bs-target="#meals"
+                    <button class="nav-link link-success" id="meals-tab" data-bs-toggle="tab" data-bs-target="#meals"
                         type="button" role="tab" aria-controls="meals" aria-selected="false">Saved Meals</button>
                 </li>
 

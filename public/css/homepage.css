@@ -6,8 +6,8 @@ body {
     font-family: 'Short Stack', cursive;
 
     background-repeat: no-repeat;
-    background-image: url(../images/hand-drawn-fresh-bread-sesame-bun-pretzel-and-french-loaf-sketch-bakery-breads-vector-illustration-s.jpeg);
-    background-size:1024px 576px;
+    background-image: url(../images/breadbackground.jpeg);
+    background-size:1024px 625px;
     
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
@@ -24,7 +24,7 @@ a {
     width: 417px;
     height: 38px;
     left: 62px;
-    top: 128px;
+    top: 177px;
 
     background: #F7FFFF;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -38,7 +38,7 @@ a {
     width: 417px;
     height: 38px;
     left: 544px;
-    top: 128px;
+    top: 177px;
 
     background: #F7FFFF;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -53,7 +53,7 @@ a {
     width: 417px;
     height: 360px;
     left: 62px;
-    top: 177px;
+    top: 225px;
 
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     background: #F7FFFF;
@@ -69,7 +69,7 @@ a {
     width: 417px;
     height: 360px;
     left: 544px;
-    top: 177px;
+    top: 225px;
 
     background: #F6FFFF;
     border-radius: 10px;
@@ -99,6 +99,33 @@ color: #FFFFFF;
 text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+#logoImage {
+position: absolute;
+width: 230px;
+height: 130px;
+
+left: 50px;
+top:-10px;
+
+}
+
+#loggedInDisplay {
+position: absolute;
+
+top:65px;
+left: 568px;
+width: 350px;
+height: 48px;
+
+background: #FFFFFF;
+border: 1px solid #000000;
+box-sizing: border-box;
+box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 10px;
+}
+#landingLogoImage {
+    display:none;
+}
 #landingLogo {
 display: initial;
 
@@ -124,20 +151,21 @@ text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 #dropDown {
 display: none;
 
-text-decoration: none;
+text-decoration:solid;
 position: absolute;
 width: 306px;
 height: 45px;
 left: 595px;
 top: 53px;
 
+color :rgb(60, 198, 101);
 font-family: Sriracha;
 font-style: normal;
 font-weight: normal;
 font-size: 24px;
 line-height: 64px;
 
-color: #FFFFFF;
+
 
 
 text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
