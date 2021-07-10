@@ -9,9 +9,9 @@ User.hasMany(Meal, {
   onDelete: 'CASCADE'
 });
 
-// Meal.belongsTo(User, {
-//   foreignKey: 'user_id'
-// });
+Meal.belongsTo(User, {
+  foreignKey: 'user_id'
+});
 
 // Meal.hasMany(Food, {
 //     foreignKey: 'user_id',
