@@ -31,15 +31,19 @@ Meal.belongsToMany(Food, {
   });
 
 User.belongsToMany(Food, {
-  through: Favorite,
-  // as: 'foods',
-  // foreignKey: 'user_id'
+  through: {
+    model: Favorite,
+    unique: false
+  },
+  as: 'user_foods'
 });
 
 Food.belongsToMany(User, {
-  through: Favorite,
-  // as: 'users',
-  // foreignKey: 'food_id'
+  through: {
+    model: Favorite,
+    unique: false
+  },
+  as: 'food_users'
 })
 
 module.exports = { Food, Meal, User, Mealfood, Favorite };
