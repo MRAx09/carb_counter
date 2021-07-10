@@ -6,8 +6,7 @@ router.get('/savedmeals', withAuth, async (req, res) => {
   try {
     const savedMealData = await Meal.findAll({
       where: {
-        //change below to req.sessoin.user_id when current user id has saved meals
-        user_id: 1
+        user_id: req.session.user_id
       },
       include: {
         model: Food,
@@ -40,8 +39,7 @@ router.get('/savedmeals/:id', withAuth, async (req, res) => {
     console.log(req.params.id)
     const oneSavedMeal = await Meal.findByPk(req.params.id, {
       where: {
-        //change below to req.session.user_id when current user id has saved meals
-        user_id: 1
+        user_id: req.session.user_id
       },
       include: {
         model: Food,
