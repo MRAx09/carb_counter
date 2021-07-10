@@ -5,7 +5,7 @@
       "serving_unit": "cup",
       "serving_weight_grams": 160,
       "nf_total_carbohydrates": 48.11,
-      "nf_dietary_ fiber": 6.24
+      "nf_dietary_fiber": 6.24
     },
     {
         "food_name": "spaghetti sauce",
@@ -13,7 +13,7 @@
         "serving_unit": "cup",
         "serving_weight_grams": 132,
         "nf_total_carbohydrates": 9.81,
-        "nf_dietary_ fiber": 2.38
+        "nf_dietary_fiber": 2.38
     },
     {
         "food_name": "meatballs",
@@ -21,7 +21,7 @@
         "serving_unit": "medium meatballs",
         "serving_weight_grams": 113.4,
         "nf_total_carbohydrates": 9.14,
-        "nf_dietary_ fiber": 2.61
+        "nf_dietary_fiber": 2.61
     },
     {
         "food_name": "whole milk",
@@ -36,7 +36,7 @@
         "serving_unit": "roll",
         "serving_weight_grams": 56,
         "nf_total_carbohydrates": 25.16,
-        "nf_dietary_ fiber": 3.42
+        "nf_dietary_fiber": 3.42
     },
     {
         "food_name": "chicken patty",
@@ -44,7 +44,7 @@
         "serving_unit": "patty",
         "serving_weight_grams": 60,
         "nf_total_carbohydrates": 7.7,
-        "nf_dietary_ fiber": 0.18
+        "nf_dietary_fiber": 0.18
     },
     {
         "food_name": "tomato",
@@ -52,7 +52,7 @@
         "serving_unit": "slice",
         "serving_weight_grams": 20.67,
         "nf_total_carbohydrates": 0.8,
-        "nf_dietary_ fiber": 0.25
+        "nf_dietary_fiber": 0.25
     },
     {
         "food_name": "black beans",
@@ -60,7 +60,7 @@
         "serving_unit": "cup",
         "serving_weight_grams": 86,
         "nf_total_carbohydrates": 20.39,
-        "nf_dietary_ fiber": 7.48
+        "nf_dietary_fiber": 7.48
     },
     {
         "food_name": "chocolate chip cookie",
@@ -68,7 +68,7 @@
         "serving_unit": "medium (3' diameter)",
         "serving_weight_grams": 30,
         "nf_total_carbohydrates": 19.61,
-        "nf_dietary_ fiber": 0.6
+        "nf_dietary_fiber": 0.6
     },
     {
         "food_name": "apple",
@@ -76,7 +76,7 @@
         "serving_unit": "medium (3' dia)",
         "serving_weight_grams": 182,
         "nf_total_carbohydrates": 25.13,
-        "nf_dietary_ fiber": 4.37
+        "nf_dietary_fiber": 4.37
     },
     {
         "food_name": "brown rice",
@@ -84,7 +84,7 @@
         "serving_unit": "cup",
         "serving_weight_grams": 97.5,
         "nf_total_carbohydrates": 22.92,
-        "nf_dietary_ fiber": 1.76
+        "nf_dietary_fiber": 1.76
     },
     {
         "food_name": "kale raw",
@@ -92,7 +92,7 @@
         "serving_unit": "cup",
         "serving_weight_grams": 16,
         "nf_total_carbohydrates": 1.4,
-        "nf_dietary_ fiber": 0.58
+        "nf_dietary_fiber": 0.58
     }
   ]
   
