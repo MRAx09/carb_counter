@@ -2,3 +2,41 @@
 It will have entry fields for: foodname(&quantity?), total carbohydrates, and fiber
 Should an entry here be automatically put into a user’s favorites?
 We will put the current meal partial in here on the right side --}}
+
+<div class="row justify-space-between-md">
+  <div class="customfood-card">
+    <h2 class="page-title">Enter your own custom food</h2>
+    <form class="form customfood-form">
+      <div class="form-group">
+        <label for="food-name">Food Name:</label>
+        <input class="form-input" type="text" id="food-name" />
+      </div>
+       <div class="form-group">
+        <label for="food-serving-unit">Serving unit (each, cup, grams, etc):</label>
+        <input class="form-input" type="text" id="serving_unit" />
+      </div>
+        <div class="form-group">
+        <label for="food-serving-qty">Serving quantity (must be numerical, can be a decimal):</label>
+        <input class="form-input" type="number" id="serving_qty" />
+      </div>
+       <div class="form-group">
+        <label for="food-serving-weight-grams">Enter the weight of the serving size in grams if desired:</label>
+        <input class="form-input" type="number" id="serving_weight_grams" />
+      </div>
+      <div class="form-group">
+        <label for="nf-total-carbohydrates">Total Carbohydrates (grams):</label>
+        <input class="form-input" type="number" id="nf-total-carbohydrates" />
+      </div>
+        <div class="form-group">
+        <label for="nf-dietary-fiber">Dietary Fiber (grams):</label>
+        <input class="form-input" type="number" id="nf-dietary-fiber" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit" id="enter-food-btn"> Enter Food </button>
+      </div>
+    </form>
+  </div>
+ 
+</div>
+
+<script src="./js/customfood.js"></script>

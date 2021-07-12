@@ -26,11 +26,27 @@
             {{/if}}
         </div>
         {{{body}}}
+
+
+        {{!-- Add?: action="/searchresults" --}}
+        <form  class="form nutritionixsearch-form">
+            <label for="nutritionixsearch">Search for a food (note you can add a quantity if you wish):</label>
+            <input type="search" id="nutritionixsearch" name="nutritionixsearch">
+            <input type="submit">
+        </form>
+
+        <div id="customfoodBtn">
+            {{#if logged_in}}
+            <a href="/customfood" class="no-button" id="createcustomfood">Create your own custom food</a>
+            {{/if}}
+        </div>
     </div>
     
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
+  <script src="/js/main.js"></script>
+  <script src="/js/search.js"></script>
 </body>
 
 </html>
