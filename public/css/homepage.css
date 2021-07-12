@@ -1,0 +1,518 @@
+/* From Beau's prototype */
+body {
+    color: red;
+    position:absolute;
+    
+    font-size: 12px;
+    font-family: 'Short Stack', cursive;
+    
+    background-repeat: no-repeat;
+    background-image: url(../images/breadbackground.jpeg);
+    background-size:1024px 625px;
+    
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ----Main Page---- */
+#searchDiv {
+    display:none;
+
+    position: absolute;
+    width: 417px;
+    height: 38px;
+    left: 62px;
+    top: 177px;
+
+    background: #F7FFFF;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+#mealName {
+    display:none;
+
+    position: absolute;
+    width: 417px;
+    height: 38px;
+    left: 544px;
+    top: 177px;
+
+    background: #F7FFFF;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+
+}
+#leftWindow {
+    overflow: auto;
+    display: none;
+
+    position: absolute;
+    width: 417px;
+    height: 360px;
+    left: 62px;
+    top: 225px;
+
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: #F7FFFF;
+    border-radius: 10px;
+}
+
+#rightWindow {
+    display: none;
+
+    overflow: auto;
+    
+    position: absolute;
+    width: 417px;
+    height: 360px;
+    left: 544px;
+    top: 225px;
+
+    background: #F6FFFF;
+    border-radius: 10px;
+
+
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#logo {
+display: none;
+
+position: absolute;
+width: 328px;
+height: 97px;
+left: 108px;
+top: 31px;
+
+font-family: Sriracha;
+font-style: normal;
+font-weight: normal;
+font-size: 55px;
+line-height: 97px;
+
+color: #FFFFFF;
+
+
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.nav-link {
+    font-size: 13px;
+}
+#logoImage {
+position: absolute;
+width: 270px; 
+height: 130px;
+
+left: 35px;
+top:-10px;
+
+}
+
+#loggedInDisplay {
+display:none;
+position: absolute;
+
+top:65px;
+left: 568px;
+width: 350px;
+height: 48px;
+
+background: #FFFFFF;
+border: 1px solid #000000;
+box-sizing: border-box;
+box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 10px;
+}
+#landingLogoImage {
+    display:initial;
+    width: 500px;
+    height: 250px;
+   
+}
+#landingLogo {
+display: initial;
+
+position: absolute;
+width: 328px;
+height: 97px;
+left: 300px;
+top: 31px;
+
+font-family: Sriracha;
+font-style: normal;
+font-weight: normal;
+font-size: 55px;
+line-height: 97px;
+
+color: #FFFFFF;
+
+
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+#dropDown {
+display: none;
+
+text-decoration:solid;
+position: absolute;
+width: 306px;
+height: 45px;
+left: 595px;
+top: 53px;
+
+color :rgb(60, 198, 101);
+font-family: Sriracha;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 64px;
+
+
+
+
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+
+.table {
+    font-family: 'Short Stack';
+    empty-cells:hide;
+    font-size: 12px;
+}
+.nav-item {
+    font-family: 'Short Stack';
+}
+.form-control {
+        font-family: 'Short Stack';
+
+}
+/* ---------------  */
+
+
+
+/* ---- Log in / Sign up ---- */
+#background {
+display:initial;
+
+position:absolute   ;
+width: 100%;
+height: 100%;
+left: 0%;
+top: 0%;
+
+background: #e5dede;
+}
+
+#nameTxt {
+display: initial;
+
+position: absolute;
+width: 500px;
+height: 84px;
+left: 30%;
+top: -5%;
+
+font-family: Arial, Helvetica, sans-serif;
+font-style: italic;
+font-weight: normal;
+font-size: 72px;
+line-height: 84px;
+
+color: #000000;
+
+}
+
+#flavor-txt {
+display:initial;
+
+position: absolute;
+margin: auto;
+width: 598px;
+height: 28px;
+left: 50%;
+top: 45%;
+transform: translate(-50%, -50%);
+
+font-family: Arial, Helvetica, sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 28px;
+text-align: center;
+color: #000000;
+
+}
+
+/* #showLogInBtn {
+display:initial;
+
+position: absolute;
+width: 141px;
+height: 48px;
+left:600px;
+top: 400px ;
+margin:auto;
+
+background: #9CDA8D;
+border: 2px solid #000000;
+box-sizing: border-box;
+border-radius: 8px;
+}
+    #showLogInBtn:hover {
+       background: #8ecde0;
+    } */
+
+#showSignUpBtn {
+display:initial;
+
+position: absolute;
+width: 141px;
+height: 48px;
+left: 300px;
+top: 550px;
+
+background: #9CDA8D;
+border: 2px solid #000000;
+box-sizing: border-box;
+border-radius: 8px;
+}
+    #showSignUpBtn:hover {
+        background-color: #8ecde0;
+    }
+
+
+#createUserNameInput {
+
+position: absolute;
+width: 279px;
+height: 34px;
+left: 300px;
+top: 200px;
+
+background: #FFFFFF;
+border: 1px solid #000000;
+box-sizing: border-box;
+border-radius: 8px;
+}
+
+#createPasswordInput {
+
+position: absolute;
+width: 279px;
+height: 34px;
+left: 350px;
+top: 350px;
+
+background: #FFFFFF;
+border: 1px solid #000000;
+box-sizing: border-box;
+border-radius: 8px;
+}
+
+#confirmPasswordInput {
+
+position: absolute;
+width: 279px;
+height: 34px;
+left: 400px;
+top: 460px;
+
+background: #FFFFFF;
+border: 1px solid #000000;
+box-sizing: border-box;
+border-radius: 8px;
+}
+
+
+#createAcntBtn {
+
+position: absolute;
+width: 108.57px;
+height: 34px;
+left: 44%;
+top: 80%;
+
+background: #9CDA8D;
+border: 2px solid #000000;
+box-sizing: border-box;
+border-radius: 8px;
+}
+    #createAcntBtn:hover {
+        background:#8ecde0;
+
+    }
+
+#userNameInput {
+position: absolute;
+width: 279px;
+height: 34px;
+left: 375px;
+top: 400px;
+
+background: #FFFFFF;
+border: 1px solid #000000;
+box-sizing: border-box;
+border-radius: 8px;
+}
+
+#passwordInput {
+
+position: absolute;
+width: 279px;
+height: 34px;
+left: 375px;
+top: 500px;
+
+background: #FFFFFF;
+border: 1px solid #000000;
+box-sizing: border-box;
+border-radius: 8px;
+}
+
+#logInBtn {
+
+position: absolute;
+width: 141px;
+height:48px;
+left: 600px;
+top: 550px;
+
+background: #9CDA8D;
+border: 2px solid #000000;
+box-sizing: border-box;
+border-radius: 8px;
+}
+    #logInBtn:hover {
+        background:#8ecde0;
+
+    }
+
+
+#newUserName {
+
+position: absolute;
+width: 142.66px;
+height: 42px;
+left: 400px;
+top: 150px;
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-weight: normal;
+font-size: 24px;
+line-height: 28px;
+
+color: #000000;
+
+}
+
+#newUserPw {
+
+position: absolute;
+width: 142.66px;
+height: 42px;
+left: 400px;
+top: 300px;
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-weight: normal;
+font-size: 24px;
+line-height: 28px;
+
+color: #000000;
+
+}
+
+#confirmPw {
+
+position: absolute;
+width: 200.66px;
+height: 42px;
+left: 400px;
+top: 410px;
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-weight: normal;
+font-size: 24px;
+line-height: 28px;
+
+color: #000000;
+
+}
+
+#logInUserName {
+
+position: absolute;
+width: 142.66px;
+height: 42px;
+left: 450px;
+top: 350px;
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-weight: normal;
+font-size: 24px;
+line-height: 28px;
+
+color: #000000;
+}
+
+#logInPassword {
+
+position: absolute;
+width: 142.66px;
+height: 42px;
+left: 450px;
+top: 450px;
+
+font-family: Arial, Helvetica, sans-serif;
+
+font-weight: normal;
+font-size: 24px;
+line-height: 28px;
+
+color: #000000;
+}
+
+#signUpInputs {
+    display:none;
+}
+
+#logInInputs {
+    display:initial;
+}
+
+#initialBtns {
+    display: initial;
+}
+
+
+#backBtn {
+display:none;
+
+position: absolute;
+width: 76px;
+height: 23.8px;
+left: 400px;
+top: 500px;
+
+background: #9CDA8D;
+border: 2px solid #000000;
+box-sizing: border-box;
+border-radius: 8px;
+}
+    #backBtn:hover {
+        background:#8ecde0;
+
+    }
+
+/* ---------------  */

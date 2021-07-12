@@ -8,5 +8,10 @@
 <p>total carbohydrates: {{food.nf_total_carbohydrates}} </p>
 <p>dietary fiber: {{food.nf_dietary_fiber}}</p>
 {{/each}}
+<div class="delete-btn">
+  <button class="btn btn-sm btn-danger" data-id="{{meal.id}}">Delete</button>
+</div>
 
 {{>currentmeal}}
+
+<script src="/js/deleteMeal.js"></script>
