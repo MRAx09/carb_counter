@@ -2,43 +2,6 @@ const router = require('express').Router();
 const { Meal, Food, Favorite, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/savedmeals', withAuth, async (req, res) => {
-  try {
-    const savedMealData = await Meal.findAll({
-      where: [{
-        // user_id: req.session.user_id
-        id: req.session.user_id
-      }],
-      include: [{
-        model: Food,                  //??????
-        through: { attribites: [] },   //??????
-      }]
-    });
-
-    console.log(savedMealData);
-    console.log('++++++++++++++++++++++++++')
-    const usermeals = savedMealData.map((food) => food.get({ plain: true }));
-
-    console.log(usermeals)
-    console.log(JSON.stringify(usermeals))
-    if (usermeals.hasOwnProperty("food_name")){ console.log(usermeals.food_name)};
-    console.log('mmmmmmmmmmmmmmmm')
-
-    if (usermeals) {
-      res.render('homepage', {   
-        usermeals,
-        logged_in: req.session.logged_in,
-      });
-      console.log('||||||||||');
-      console.log(usermeals);
-    };
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
-
-
 router.get('/savedmeals/:id', withAuth, async (req, res) => {
   try {
     console.log(req.params.id)
@@ -68,8 +31,6 @@ router.get('/savedmeals/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-
 
 router.post('/', withAuth, async (req, res) => {
   try {
@@ -104,5 +65,42 @@ router.delete('/:id', withAuth, async (req, res) => {
   }
 });
 
+// *****Don't think we'll need this route (GET '/savedmeals').
+// *****Initial homepage route (GET '/') gets this.
+// router.get('/savedmeals', withAuth, async (req, res) => {
+//   try {
+//     const savedMealData = await Meal.findAll({
+//       where: [{
+//         // user_id: req.session.user_id
+//         id: req.session.user_id
+//       }],
+//       include: [{
+//         model: Food,                  //??????
+//         through: { attribites: [] },   //??????
+//       }]
+//     });
+
+//     console.log(savedMealData);
+//     console.log('++++++++++++++++++++++++++')
+//     const usermeals = savedMealData.map((food) => food.get({ plain: true }));
+
+//     console.log(usermeals)
+//     console.log(JSON.stringify(usermeals))
+//     if (usermeals.hasOwnProperty("food_name")){ console.log(usermeals.food_name)};
+//     console.log('mmmmmmmmmmmmmmmm')
+
+//     if (usermeals) {
+//       res.render('homepage', {   
+//         usermeals,
+//         logged_in: req.session.logged_in,
+//       });
+//       console.log('||||||||||');
+//       console.log(usermeals);
+//     };
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
 module.exports = router;
