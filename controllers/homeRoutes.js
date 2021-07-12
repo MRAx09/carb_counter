@@ -132,43 +132,38 @@ router.get('/customfood', withAuth, (req, res) => {
 
 //get route to show search result
 //first search our database, then search the nutritionix api
-router.post('/search', async (req, res) => {  
+router.get('/search', async (req, res) => {  
   try {
-      console.log('req.body')
-      console.log(req.body)
+      console.log('*******************req.query:   ', req.query)
       const foodSearch = await Food.findAll( {
         where: [{
-          food_name: req.body.food_name,
+          food_name: req.query.q,
         }]
       }); 
       
-      console.log('foodSearch')
-      console.log(foodSearch)
+      console.log('1111111  foodSearch[0]    ', foodSearch[0])
       
+      if (foodSearch[0] != undefined) {
+      const {dataValues: foodResult}= foodSearch[0]
+    
+      console.log('KKKKKKKKKKK     ', foodResult)
 
-
+      res.status(200).render('search', foodResult)
       
-
-      // res.redirect(`/food/${foodSearchPlain[0].id}`)
-      
-
+      } else 
 
       if (foodSearch === undefined || foodSearch.length == 0) {
 
-        // const food = req.body;
-
-        // console.log('below is food')
-        // console.log(food)
+ 
 
         const nutritionix = require("nutritionix-api");
-        // const { classToInvokable } = require("sequelize/types/lib/utils")
 
         const YOUR_APP_ID   = '6d49b16d'; // Your APP ID
         const YOUR_API_KEY  = 'c3f9948827ec66b95e92858e23b748e4'; // Your KEY
 
 
         // const whatFood = document.querySelector('#nutritionixsearch').value.trim();
-        const whatFood = req.body.food_name
+        const whatFood = req.query.q
 
         console.log(whatFood)
 
@@ -182,39 +177,34 @@ router.post('/search', async (req, res) => {
         console.log('LOOK HERE')
         console.log(create)
 
-        const newFood = Food.create({
+        foodResult = {
           food_name: create.food_name,
           serving_qty: create.serving_qty,
           serving_unit: create.serving_unit,
           serving_weight_grams: create.serving_weight_grams,
           nf_total_carbohydrates: create.nf_total_carbohydrate,
           nf_dietary_fiber: create.nf_dietary_fiber
-        });
-        res.status(200).json(newFood);
-        // res.render ('search', {
-        //   result,
-        //   logged_in: req.session.logged_in 
-        //   });
-        // });
+        }
+
+        const newFood = Food.create(foodResult);
+        // res.status(200).json(newFood);
+        // // res.render ('search', {
+        // //   result,
+        // //   logged_in: req.session.logged_in 
+        // //   });
+        // // });
+
+        console.log('newFood........   ', newFood)
+
+      res.status(200).render('search', foodResult)
 
       }); 
+
+      
     }
-    else {
-        
-        console.log('in the else')
-        foodSearchPlain = JSON.parse(JSON.stringify(foodSearch))
-      console.log('foodsearchplain')
-      console.log(foodSearchPlain[0].id)
-
-      const stringId = foodSearchPlain[0].id.toString()
-      console.log(stringId)
-
-      res.send(stringId)
-      // res.status(200).foodSearchPlain[0].id
-
-      }
 
 
+    
     
 
   
