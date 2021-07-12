@@ -4,11 +4,37 @@ const withAuth = require('../utils/auth');
 
 
 router.get('/', async (req, res) => {  
+    if (!req.session.logged_in) {
+      res.render('homepage');
+    } else {
+        res.render('homepage', {logged_in: req.session.logged_in});
+    }
+});
+
+router.get('/food/custom', (req, res) => {
+  const customFood = true;
+  const customOrMealDetail = true;
+  res.render('homepage', { logged_in: req.session.logged_in, customFood, customOrMealDetail })
+});
+
+router.get('/food/:id', async (req, res) => {
+    try {
+      // console.log(req.params)
+      const foodData = await Food.findByPk(req.params.id);
+      const food = foodData.get({ plain: true });
+      res.render('food', {
+        ...food,
+        logged_in: req.session.logged_in
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
+router.get('/favorites', async (req, res) => {  
   try {
     //Home page should show list of favorite foods, might also need a route for current meal.
     //do we need separate table for current meal or should we use local storage for that?
-
-
     if (!req.session.logged_in) {
       res.render('homepage');
     } else {
@@ -29,20 +55,15 @@ router.get('/', async (req, res) => {
         }]
       });
 
-      // console.log(userNm);
-      // console.log('~~~~~~~~~~~~');
       const usersName = userNm[0].dataValues.name;
 
-      // console.log(usersName);
-
       const favorites = userData.map((fav) => fav.get({ plain: true}));
-      // console.log('********');
-      // console.log(favorites[0]);
-      // console.log(userData);
+
       if (userData === undefined || userData.length == 0) {
         res.render('homepage', {logged_in: req.session.logged_in});
       } else {
       const userFoods = favorites[0].user_foods; 
+
 
       if (userFoods) {
         res.render('homepage', {   
@@ -60,23 +81,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-
-router.get('/food/:id', async (req, res) => {
-    try {
-      console.log(req.params)
-      const foodData = await Food.findByPk(req.params.id);
-  
-      const food = foodData.get({ plain: true });
-  
-      res.render('food', {
-        ...food,
-        logged_in: req.session.logged_in
-      });
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
-
 router.get('/meal/:id', async (req, res) => {
   try {
     const mealData = await Meal.findByPk(req.params.id, {
@@ -87,9 +91,7 @@ router.get('/meal/:id', async (req, res) => {
         },
       ],
     });
-
     const meal = mealData.get({ plain: true });
-
     res.render('meal', {
       ...meal,
       logged_in: req.session.logged_in
@@ -105,8 +107,9 @@ router.get('/login', (req, res) => {
     res.redirect('/homepage');
     return;
   }
-  const onLoginPage = true;
-  res.render('login', { onLoginPage });
+  const onLogin = true;
+  const onSignupLogin = true;
+  res.render('login', { onLogin, onSignupLogin });
 });
 
 router.get('/signup', (req, res) => {
@@ -114,8 +117,10 @@ router.get('/signup', (req, res) => {
     res.redirect('/');
     return;
   }
-  const onSignupPage = true;
-  res.render('signup', { onSignupPage }); 
+  const onSignup = true;
+  const onSignupLogin = true;
+  res.render('signup', { onSignup, onSignupLogin }); 
 });
+
 
 module.exports = router;
