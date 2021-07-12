@@ -1,5 +1,7 @@
 const logoutHandler = async () => {
   // Make a POST request to destroy the session on the back end
+  // console.log('in logouthandler');
+
   const response = await fetch('/api/users/logout', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -14,3 +16,4 @@ const logoutHandler = async () => {
 };
 
 document.querySelector('#logout').addEventListener('click', logoutHandler);
+// document.querySelector('#initialBtns').addEventListener('click', logoutHandler);
