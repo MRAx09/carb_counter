@@ -128,38 +128,40 @@ deleteBtn.click(async function () {
         alert('Failed to delete favorite');
       }
     }
+
   });
+// ***** Don't think this commented out section is needed.
+// ***** Remove it. This is taken care of by the the inital GET '/' route. 
+// const mealsTabHandler = async (event) => {
+//     const response = await fetch('/api/meals/savedmeals', { 
+//       method: 'GET',
+//     });
+//     console.log('iuiuiuiuiuiuiuiu');
+//     console.log(response);
+//     if (response.ok) {
+//       // document.location.replace('/api/meals/savedmeals');
+//     } else {
+//       alert('Failed to list meals');
+//     }
+//   };
+// document.querySelector('#meals-tab').addEventListener('click', mealsTabHandler);
 
-const mealsTabHandler = async (event) => {
-    const response = await fetch('/api/meals/savedmeals', { 
-      method: 'GET',
-    });
-    console.log('iuiuiuiuiuiuiuiu');
-    console.log(response);
-    if (response.ok) {
-      // document.location.replace('/api/meals/savedmeals');
-    } else {
-      alert('Failed to list meals');
-    }
-  };
-document.querySelector('#meals-tab').addEventListener('click', mealsTabHandler);
+// const favoritesTabHandler = async (event) => {
+//   const response = await fetch('/favorites', { 
+//     method: 'GET',
+//   });
+//   console.log('opopopopopopop');
+//   console.log(response);
+//   if (response.ok) {
+//     // document.location.replace('/api/meals/savedmeals');
+//   } else {
+//     alert('Failed to list favorite foods');
+//   }
+// };
+// document.querySelector('#favorites-tab').addEventListener('click', favoritesTabHandler);
 
-const favoritesTabHandler = async (event) => {
-  const response = await fetch('/favorites', { 
-    method: 'GET',
-  });
-  console.log('opopopopopopop');
-  console.log(response);
-  if (response.ok) {
-    // document.location.replace('/api/meals/savedmeals');
-  } else {
-    alert('Failed to list favorite foods');
-  }
-};
-document.querySelector('#favorites-tab').addEventListener('click', favoritesTabHandler);
-
-// Delete the following code:
-//
+// ***** Don't think this commented out section is needed.
+// ***** Remove it. This is taken care of by the the inital GET '/' route. 
 // const delFoodHandler = async (event) => {
 //     console.log('jjjjjjjjjjjjjjjjjjj');
 //     if (event.target.hasAttribute('foodDelBtn-id')) {

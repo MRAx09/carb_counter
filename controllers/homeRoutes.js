@@ -3,12 +3,74 @@ const { Food, Meal, User, Mealfood, Favorite } = require('../models');
 const withAuth = require('../utils/auth');
 
 
+// router.get('/', async (req, res) => {  
+//     if (!req.session.logged_in) {
+//       res.render('homepage');
+//     } else {
+//         res.render('homepage', {logged_in: req.session.logged_in});
+//     }
+// });
 router.get('/', async (req, res) => {  
+  try {
+
     if (!req.session.logged_in) {
       res.render('homepage');
     } else {
+      const userData = await User.findAll( {
+        where: [{
+          id: req.session.user_id,
+        }],
+        include: [{
+          model: Food,
+          as: 'user_foods',
+          required: 'false',
+        }]
+      }); 
+// ****** savedMealData section below. Don't think this returns the
+// ****** right data. We should progably change this to imitate
+// ****** what happens with UserData (above) exactly.
+      const savedMealData = await Meal.findAll({
+        where: [{
+          // user_id: req.session.user_id
+          id: req.session.user_id
+        }],
+        include: [{
+          model: Food,                  
+          through: { attribites: [] },  
+        }]
+      });
+      const usermeals = savedMealData.map((food) => food.get({ plain: true }));
+// ********* end savedMealData section
+      const userNm = await User.findAll( {
+        where: [{
+          id: req.session.user_id
+        }]
+      });
+
+      const usersName = userNm[0].dataValues.name;
+      const favorites = userData.map((fav) => fav.get({ plain: true}));
+
+      if (userData === undefined || userData.length == 0) {
         res.render('homepage', {logged_in: req.session.logged_in});
-    }
+      } else {
+      const userFoods = favorites[0].user_foods; 
+
+// **** Add a similar if statement for userMeals?
+      if (userFoods) {
+        res.render('homepage', {   
+          userFoods,
+          usermeals,
+          logged_in: req.session.logged_in,
+        });
+      } else {  
+        res.render('homepage', {logged_in: req.session.logged_in});
+        // res.render('homepage', {logged_in: req.session.logged_in, userName: usersName});
+      }
+    }}
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
 
 router.get('/food/custom', (req, res) => {
@@ -31,55 +93,54 @@ router.get('/food/:id', async (req, res) => {
     }
   });
 
-router.get('/favorites', async (req, res) => {  
-  try {
-    //Home page should show list of favorite foods, might also need a route for current meal.
-    //do we need separate table for current meal or should we use local storage for that?
-    if (!req.session.logged_in) {
-      res.render('homepage');
-    } else {
-      const userData = await User.findAll( {
-        where: [{
-          id: req.session.user_id,
-        }],
-        include: [{
-          model: Food,
-          as: 'user_foods',
-          required: 'false',
-        }]
-      }); 
+// ***** Don't think this commented out section (GET '/favorites') 
+// ***** is needed. Remove it. This code is already in the GET '/' route. 
+// router.get('/favorites', async (req, res) => {  
+//   try {
+//     if (!req.session.logged_in) {
+//       res.render('homepage');
+//     } else {
+//       const userData = await User.findAll( {
+//         where: [{
+//           id: req.session.user_id,
+//         }],
+//         include: [{
+//           model: Food,
+//           as: 'user_foods',
+//           required: 'false',
+//         }]
+//       }); 
 
-      const userNm = await User.findAll( {
-        where: [{
-          id: req.session.user_id
-        }]
-      });
+//       const userNm = await User.findAll( {
+//         where: [{
+//           id: req.session.user_id
+//         }]
+//       });
 
-      const usersName = userNm[0].dataValues.name;
+//       const usersName = userNm[0].dataValues.name;
 
-      const favorites = userData.map((fav) => fav.get({ plain: true}));
+//       const favorites = userData.map((fav) => fav.get({ plain: true}));
 
-      if (userData === undefined || userData.length == 0) {
-        res.render('homepage', {logged_in: req.session.logged_in});
-      } else {
-      const userFoods = favorites[0].user_foods; 
+//       if (userData === undefined || userData.length == 0) {
+//         res.render('homepage', {logged_in: req.session.logged_in});
+//       } else {
+//       const userFoods = favorites[0].user_foods; 
 
 
-      if (userFoods) {
-        res.render('homepage', {   
-          userFoods,
-          logged_in: req.session.logged_in,
-        });
-      } else {  
-        res.render('homepage', {logged_in: req.session.logged_in});
-        // res.render('homepage', {logged_in: req.session.logged_in, userName: usersName});
-      }
-    }}
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+//       if (userFoods) {
+//         res.render('homepage', {   
+//           userFoods,
+//           logged_in: req.session.logged_in,
+//         });
+//       } else {  
+//         res.render('homepage', {logged_in: req.session.logged_in});
+//       }
+//     }}
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
 router.get('/meal/:id', async (req, res) => {
   try {
@@ -121,6 +182,5 @@ router.get('/signup', (req, res) => {
   const onSignupLogin = true;
   res.render('signup', { onSignup, onSignupLogin }); 
 });
-
 
 module.exports = router;
