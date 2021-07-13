@@ -68,10 +68,16 @@
             </div>
         </div>
         <div id="searchDiv">
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Enter the name of a food to search"
+            <div class="input-group mb-3 nutritionixsearch-form">
+                <form  class="form nutritionixsearch-form">
+                {{!-- Add modal or ability to tell user that they can include a quantity in the search bar --}}
+
+                <input type="search" id = "nutritionixsearch" class="form-control" placeholder="Enter the name of a food to search"
                     aria-label="Recipient's username" aria-describedby="button-addon2">
-                <button class="btn btn-outline-success" type="button" id="button-addon2">🔍</button>
+                <button class="btn btn-outline-success"  type="submit" id="button-addon2">🔍</button>
+                </form>
+
+    
             </div>
         </div>
     {{/unless}}
@@ -79,9 +85,13 @@
     </div>
 
   <script src="/js/index.js"></script>
+  <script src="/js/search.js"></script>
+
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
+
+
 
 </body>
 

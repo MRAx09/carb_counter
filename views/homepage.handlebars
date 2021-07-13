@@ -1,10 +1,10 @@
         <div id="leftWindow">
 {{#unless customOrMealDetail}}
             <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item" role="presentation">
+                {{!-- <li class="nav-item" role="presentation">
                     <button class="nav-link link-success" id="search-tab" data-bs-toggle="tab" data-bs-target="#search"
                         type="button" role="tab" aria-controls="search" aria-selected="true">Search Results</button>
-                </li>
+                </li> --}}
                 <li class="nav-item" role="presentation">
 
                     <button class="nav-link link-success" id="favorites-tab" data-bs-toggle="tab"
@@ -18,19 +18,20 @@
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="search" role="tabpanel" aria-labelledby="search-tab">
+                {{!-- <div class="tab-pane fade show active" id="search" role="tabpanel" aria-labelledby="search-tab">
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
                                 <th scope="col">Food Name</th>
-                                <th scope="col">Carbs</th>
+                                <th scope="col">Serving</th>
+                                <th scope="col">Carbs (g)</th>
                             </tr>
                         </thead>
                         <tbody>
                            {{> searchResults }}
                         </tbody>
                     </table>
-                </div>
+                </div> --}}
 
                 <div class="tab-pane fade" id="favorites" role="tabpanel" aria-labelledby="favorites-tab">
                     <table class="table table-striped table-hover" id="foodTable">
