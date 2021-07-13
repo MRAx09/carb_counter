@@ -1,30 +1,4 @@
-// const addToCurrentMealHandler = async (event) => {
-//     event.preventDefault();
-//     if (event.target.hasAttribute('data-id')) {
-//       const id = event.target.getAttribute('data-id');
 
-//       console.log(id)
-  
-//     //   const response = await fetch(`/api/posts/${id}`, {
-//     //     method: 'DELETE',
-//     //   });
-  
-//     //   if (response.ok) {
-//     //     document.location.replace('/dashboard');
-//     //   } else {
-//     //     alert('Failed to delete post');
-//     //   }
-//     }
-//   };
-
-
-
-
-//   document
-//   .querySelector('.addToCur')
-//   .addEventListener('click', addToCurrentMealHandler);
-var listOfFoodIds = [];
-var getStored;
 var addBtn = $(".addBtn");
 
 addBtn.click(async function () {
@@ -32,35 +6,36 @@ addBtn.click(async function () {
       const id = this.getAttribute('addToCurBtn-id');
         console.log('IDDDDDDDDDDDDDDDDDD');
         console.log(id);
+        const stringId = JSON.stringify(id)
+        console.log('stringID:     ', stringId)
 
-        listOfFoodIds.push(id);
+        var currentStored;
+
+        if (localStorage.getItem("currentMealFoods") === null) {
+            currentStored = [];
+        }
+        else {
+            // currentStored = [];
+            currentStored = JSON.parse(localStorage.getItem("currentMealFoods"))
+        }
+
+        console.log('currentStored:     ', currentStored);
+        // let array = Array.from(currentStored)
+        currentStored.push(stringId)
+        console.log('now currentStored:     ', currentStored);
+
+        localStorage.setItem("currentMealFoods", JSON.stringify(currentStored))
+
+        console.log('currentStored line 78:        ', currentStored)
         
-        localStorage.setItem("currentMealFoods", listOfFoodIds);
-
-
-
-        console.log("list if food IDs *********    ", listOfFoodIds);
-        const list = JSON.stringify(listOfFoodIds);
-        console.log("$$$$$ list $$$$$$$$$$$    ", list)
-
         //go to currentmeal get route and send list of food ids
-        window.location.replace(`/currentmeal?q=${listOfFoodIds}`)
+        window.location.replace(`/currentmeal?q=${currentStored}`)
 
     }
 
   });
 
 
-function getLocal ()  {
-    getStored = localStorage.getItem("currentMealFoods")
-
-    console.log('getStored......     ', getStored);
-}
-
-
-window.onload = function () {
-    getLocal();
-}
 
 
 //savebuttonhandler function
