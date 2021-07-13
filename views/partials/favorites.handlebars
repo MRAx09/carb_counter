@@ -1,10 +1,12 @@
 {{#if userFoods}}
   {{#each userFoods as |favorite|}}
     <tr>
+      <td class = "addToCur"><button type="button" class="btn btn-sm btn-outline addBtn" addToCurBtn-id={{favorite.id}} data-id="{{favorite.id}}">+</button>
       {{!-- <td>Food Name 1</td> --}}
       <td>{{favorite.food_name}}</td>
       {{!-- <td>Carb#</td> --}}
-      <td>{{favorite.nf_total_carbohydrates}}</td>
+      <td>{{ favorite.serving_qty }} {{ favorite.serving_unit }} <br> ({{ favorite.serving_weight_grams }}g)</td>
+      <td>{{favorite.nf_total_carbohydrates}}g<br>(includes {{favorite.nf_dietary_fiber}}g fiber)</td>
       <td><button type="button" class="btn btn-sm btn-outline-danger deleteBtn" foodDelBtn-id={{favorite.id}}>🗑️</button>
     </tr>
     {{!-- <p>{{favorite.food_name}} {{favorite.nf_total_carbohydrates}}</p> --}}
@@ -14,3 +16,5 @@
     <tr><td>You have no favorites.</td></tr>
   {{/if}}
 {{/if}}
+
+<script src="/js/currentmeal.js"></script>

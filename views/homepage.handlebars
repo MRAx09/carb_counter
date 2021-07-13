@@ -21,7 +21,9 @@
                     <table class="table table-striped table-hover" id="foodTable">
                         <thead>
                             <tr>
+                                <th scope="col">Add to <br>Current Meal</th>
                                 <th scope="col">Food Name</th>
+                                <th scope="col">Serving</th>
                                 <th scope="col">Carbs</th>
                                 <th scope="col"> Del.</th>
                             </tr>
@@ -90,33 +92,12 @@
         </form>
     </div>
 {{/if}}
-        <div id="mealName">
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Enter meal name" aria-label="Recipient's username"
-                    aria-describedby="button-addon2">
-                <button class="btn btn-outline-success" type="button" id="button-addon2">💾</button>
-            </div>
-        </div>
 
-        <div id="rightWindow">
-            <table class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">Food Name</th>
-                        <th scope="col">Carbs (total)</th>
-                        <th scope="col">Fav.</th>
-                        <th scope="col"> Del.</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{> meal }}
-                </tbody>
-            </table>
-        </div>
+    
+
 {{!-- {{/unless}} --}}
 
 {{!-- {{#if logged_in}}
 <script src="/js/logout.js"></script>
 {{/if}} --}}
 
-<script src="/js/currentmeal.js"></script>
