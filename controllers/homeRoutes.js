@@ -57,6 +57,8 @@ router.get('/', async (req, res) => {
       } else {
       const userFoods = favorites[0].user_foods; 
 
+      console.log('*******userFood******    ', userFoods)
+
 // **** Add a similar if statement for userMeals?
       if (userFoods) {
         res.render('homepage', {   
@@ -267,5 +269,127 @@ router.get('/search', async (req, res) => {
   res.status(500).json(err);
 }
 });
+
+
+
+
+
+
+
+//get route to show food values for current meal
+router.get('/currentmeal', async (req, res) => {  
+  try {
+      console.log('*******************req.query:   ', req.query)
+      const list = req.query.q
+      console.log('LLLLLLL list LLLLLL     ', list);
+       
+      //convert comma separated list without spaces into an array
+      const array = list.split(/[,]+/);
+      console.log('ARRAY...:    ', array)
+
+      //convert array of strings into array of numbers
+      const numArray = array.map((i) => Number(i));
+      console.log('NUMBER ARRAY....;     ', numArray);
+
+      //get all foods that have ids in the number array
+      const currentMealFoods = await Food.findAll( {
+        where: [{
+          id: numArray,
+        }]
+      }); 
+
+      console.log("##### current Meal Foods #####     ", currentMealFoods)
+      
+
+      
+
+      const foods = currentMealFoods.map((food) => food.get({ plain: true }));
+
+      console.log('foods..:      ', foods)
+
+
+      //put foods onto current meal partial in homepage.handlebars
+      res.render('currentmeal', {   
+        foods,
+        logged_in: req.session.logged_in,
+      });
+
+
+      
+    //   console.log('1111111  currentMealFoods[0]    ', foodSearch[0])
+      
+    //   if (foodSearch[0] != undefined) {
+    //   const {dataValues: foodResult}= foodSearch[0]
+    
+    //   console.log('KKKKKKKKKKK     ', foodResult)
+
+    //   res.status(200).render('search', foodResult)
+      
+    //   } else 
+
+    //   if (foodSearch === undefined || foodSearch.length == 0) {
+
+ 
+
+    //     const nutritionix = require("nutritionix-api");
+
+    //     const YOUR_APP_ID   = '6d49b16d'; // Your APP ID
+    //     const YOUR_API_KEY  = 'c3f9948827ec66b95e92858e23b748e4'; // Your KEY
+
+
+    //     // const whatFood = document.querySelector('#nutritionixsearch').value.trim();
+    //     const whatFood = req.query.q
+
+    //     console.log(whatFood)
+
+
+    //     nutritionix.init(YOUR_APP_ID,YOUR_API_KEY);
+
+    //     nutritionix.natural.search(whatFood).then(result => {
+    //     console.log(result.foods[0].food_name);
+
+    //     const create = result.foods[0];
+    //     console.log('LOOK HERE')
+    //     console.log(create)
+
+    //     foodResult = {
+    //       food_name: create.food_name,
+    //       serving_qty: create.serving_qty,
+    //       serving_unit: create.serving_unit,
+    //       serving_weight_grams: create.serving_weight_grams,
+    //       nf_total_carbohydrates: create.nf_total_carbohydrate,
+    //       nf_dietary_fiber: create.nf_dietary_fiber
+    //     }
+
+    //     const newFood = Food.create(foodResult);
+    //     // res.status(200).json(newFood);
+    //     // // res.render ('search', {
+    //     // //   result,
+    //     // //   logged_in: req.session.logged_in 
+    //     // //   });
+    //     // // });
+
+    //     console.log('newFood........   ', newFood)
+
+    //   res.status(200).render('search', foodResult)
+
+    //   }); 
+
+      
+    // }
+
+
+    
+    
+} catch (err) {
+  console.log(err);
+  res.status(500).json(err);
+}
+});
+
+
+
+
+
 
 module.exports = router;
