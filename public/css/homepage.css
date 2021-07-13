@@ -63,7 +63,6 @@ a {
 
 #rightWindow {
     display: none;
-
     overflow: auto;
     
     position: absolute;
@@ -74,7 +73,6 @@ a {
 
     background: #F6FFFF;
     border-radius: 10px;
-
 
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -108,8 +106,8 @@ position: absolute;
 width: 270px; 
 height: 130px;
 
-left: 35px;
-top:-10px;
+top:0px;
+left: 518px;
 
 }
 
@@ -117,16 +115,18 @@ top:-10px;
 display:none;
 position: absolute;
 
-top:65px;
-left: 568px;
-width: 350px;
-height: 48px;
+left: 90px;
+top:50px;
 
-background: #FFFFFF;
+
+width: 350px;
+height: 40px;
+
+/* background: #FFFFFF;
 border: 1px solid #000000;
 box-sizing: border-box;
 box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-border-radius: 10px;
+border-radius: 10px; */
 }
 #landingLogoImage {
     display:initial;
@@ -516,3 +516,243 @@ border-radius: 8px;
     }
 
 /* ---------------  */
+
+#logInTxt {
+position: absolute;
+width: 377.49px;
+height: 48px;
+left: 490px;
+top: 220px;
+
+font-family: Sriracha;
+font-style: normal;
+font-weight: normal;
+font-size: 30px;
+line-height: 53px;
+}
+
+#email-login {
+
+position: absolute;
+width: 300px;
+height: 30px;
+left: 360px;
+top: 300px;
+
+background: #FFFFFF;
+border: 1px solid #000000;
+box-sizing: border-box;
+box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 10px;
+}
+#emailLogInTxt {
+    position: absolute;
+    width: 300px;
+    height: 30px;
+    left: 480px;
+    top: 240px;
+
+    font-family: Sriracha;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 53px;
+}
+
+
+#passwordLogInTxt {
+    position: absolute;
+    width: 300px;
+    height: 30px;
+    left: 460px;
+    top: 340px;
+
+    font-family: Sriracha;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 53px;
+}
+
+#password-login {
+    position: absolute;
+width: 300px;
+height: 30px;
+left: 360px;
+top: 400px;
+
+background: #FFFFFF;
+border: 1px solid #000000;
+box-sizing: border-box;
+box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 10px;
+}
+
+#logInBtn2 {
+    position: absolute;
+    height: 40px;
+    width: 80px;
+    left: 470px;
+    top: 460px;
+
+
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    box-shadow:unset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+
+}
+
+#signupBtn1 {
+
+    font-family: Sriracha;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 53px;
+}
+
+#logIn {
+ 
+color: green;
+    text-decoration: none;
+    font-family: Sriracha;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 53px;
+}
+#logIn:hover {
+    color:blue
+}
+
+#logOut {
+    position: absolute;
+        left: 0px;
+    top:0px;
+
+    text-decoration: none;
+    font-family: Sriracha;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 53px;
+
+}
+
+
+#signUp {
+color:green;
+
+    text-decoration: none;
+    font-family: Sriracha;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 53px;
+    
+}
+#signUp:hover {
+    color:blue;
+}
+
+#signupUserName {
+    position: absolute;
+    width: 300px;
+    height: 30px;
+    left: 455px;
+    top: 190px;
+
+    font-family: Sriracha;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 53px;
+}
+#username-signup {
+    position: absolute;
+    width: 300px;
+    height: 30px;
+    left: 360px;
+    top: 250px;
+
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+#signUpEmail {
+    position: absolute;
+    width: 300px;
+    height: 30px;
+    left: 460px;
+    top: 290px;
+
+    font-family: Sriracha;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 53px;
+}
+#email-signup {
+    position: absolute;
+    width: 300px;
+    height: 30px;
+    left: 360px;
+    top: 350px;
+
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+#confirmPassword {
+    position: absolute;
+    width: 300px;
+    height: 30px;
+    left: 420px;
+    top: 385px;
+
+    font-family: Sriracha;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 53px;
+}
+
+#password-signup {
+    position: absolute;
+    width: 300px;
+    height: 30px;
+    left: 360px;
+    top: 440px;
+
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+#signupBtn2 {
+    position: absolute;
+    height: 40px;
+    width: 90px;
+    left: 470px;
+    top: 500px;
+
+
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    box-shadow:unset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    background-color: green;
+   
+}
+
+/* .form {
+    left:500px;
+} */

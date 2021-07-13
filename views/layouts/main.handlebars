@@ -39,57 +39,59 @@
 
     <div id="background">
 
-        <p id="nameTxt">carbo-loader</p>
-        <p id="flavor-txt">carbo-loader is an application for calculating carb intake.</p>
+        <img id="logoImage" src="/images/carboLoaderLogo.png">
 
-        <button id="backBtn">back</button>    {{!-- ******????? --}}
+
+        <button id="backBtn">back</button> {{!-- ******????? --}}
     </div>
 
     <!-- Main page section -->
-      <div id="mainPage">
+    <div id="mainPage">
         <div id="logo">
             <img id="logoImage" src="/images/carboLoaderLogo.png">
         </div>
         <div id="user">
-          <div id="loggedInDisplay">
-            {{#if logged_in}}
-              <a href="#" class="no-button" id="logout">Log out</a>
-            {{else}}
-              {{#unless onLogin}}<a href="/login">Log in</a>{{/unless}} {{#unless onSignup}}<a href="/signup">Sign up</a>{{/unless}} 
-            {{/if}}
-          </div>
+            <div id="loggedInDisplay">
+                {{#if logged_in}}
+                <a href="#" class="no-button" id="logout">Log out</a>
+                {{else}}
+                {{#unless onLogin}}<a href="/login" id="logIn">Log in</a>{{/unless}} {{#unless onSignup}}<a
+                    href="/signup">Sign up</a>{{/unless}}
+                {{/if}}
+            </div>
 
         </div>
-    {{#unless onSignupLogin}}
-          <div>
+        {{#unless onSignupLogin}}
+        <div>
             <div class="input-group mb-3">
-              {{!-- *****Need to add link to route to the following --}}
-              <a href="/food/custom">Custom food</a>  
+                {{!-- *****Need to add link to route to the following --}}
+                <a href="/food/custom">Custom food</a>
             </div>
         </div>
         <div id="searchDiv">
             <div class="input-group mb-3 nutritionixsearch-form">
-                <form  class="form nutritionixsearch-form">
-                {{!-- Add modal or ability to tell user that they can include a quantity in the search bar --}}
+                <form class="form nutritionixsearch-form">
+                    {{!-- Add modal or ability to tell user that they can include a quantity in the search bar --}}
 
-                <input type="search" id = "nutritionixsearch" class="form-control" placeholder="Enter the name of a food to search"
-                    aria-label="Recipient's username" aria-describedby="button-addon2">
-                <button class="btn btn-outline-success"  type="submit" id="button-addon2">🔍</button>
+                    <input type="search" id="nutritionixsearch" class="form-control"
+                        placeholder="Enter the name of a food to search" aria-label="Recipient's username"
+                        aria-describedby="button-addon2">
+                    <button class="btn btn-outline-success" type="submit" id="button-addon2">🔍</button>
                 </form>
 
-    
+
             </div>
         </div>
-    {{/unless}}
-    {{{body}}}
+        {{/unless}}
+        {{{body}}}
     </div>
 
-  <script src="/js/index.js"></script>
-  <script src="/js/search.js"></script>
+    <script src="/js/index.js"></script>
+    <script src="/js/search.js"></script>
 
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
 
 
 
