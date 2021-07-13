@@ -284,7 +284,7 @@ router.get('/currentmeal', async (req, res) => {
       console.log('LLLLLLL list LLLLLL     ', list);
        
       //convert comma separated list without spaces into an array
-      const array = list.split(/[,]+/);
+      const array = list.split(/["',]+/);
       console.log('ARRAY...:    ', array)
 
       //convert array of strings into array of numbers
