@@ -14,7 +14,9 @@ router.get('/', async (req, res) => {
   try {
 
     if (!req.session.logged_in) {
-      res.render('homepage');
+      // res.render('landingpage');
+      const onSignupLogin = true;
+      res.render('landingpage', { onSignupLogin });
     } else {
       const userData = await User.findAll( {
         where: [{
