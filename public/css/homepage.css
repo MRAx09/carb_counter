@@ -22,7 +22,7 @@ a {
     display:none;
 
     position: absolute;
-    width: 417px;
+    width: 415px;
     height: 38px;
     left: 62px;
     top: 177px;
@@ -36,7 +36,7 @@ a {
     display:none;
 
     position: absolute;
-    width: 417px;
+    width: 374px;
     height: 38px;
     left: 544px;
     top: 177px;
@@ -115,12 +115,11 @@ left: 518px;
 display:none;
 position: absolute;
 
-left: 90px;
-top:50px;
-
+left: 120px;
+top:94px;
 
 width: 350px;
-height: 40px;
+height: 70px;
 
 /* background: #FFFFFF;
 border: 1px solid #000000;
@@ -129,9 +128,12 @@ box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 border-radius: 10px; */
 }
 #landingLogoImage {
+    position: absolute;
     display:initial;
     width: 500px;
     height: 250px;
+    top:200px;
+    left:-10px
    
 }
 #landingLogo {
@@ -528,7 +530,7 @@ font-family: Sriracha;
 font-style: normal;
 font-weight: normal;
 font-size: 30px;
-line-height: 53px;
+line-height: 31px;
 }
 
 #email-login {
@@ -613,19 +615,34 @@ border-radius: 10px;
 }
 
 #logIn {
- 
+ position: absolute;
 color: green;
     text-decoration: none;
     font-family: Sriracha;
     font-style: normal;
     font-weight: normal;
-    font-size: 24px;
-    line-height: 53px;
+    font-size: 50px;
+    line-height: 50px;
+    left: 150px;
 }
 #logIn:hover {
     color:blue
 }
+#logout {
+        position: absolute;
+        left: 0px;
+    top:0px;
 
+    text-decoration: none;
+    font-family: Sriracha;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    
+color:green;
+background-color: white;
+border-radius: 10px;
+}
 #logOut {
     position: absolute;
         left: 0px;
@@ -642,14 +659,16 @@ color: green;
 
 
 #signUp {
+    position: absolute;
 color:green;
 
     text-decoration: none;
     font-family: Sriracha;
     font-style: normal;
     font-weight: normal;
-    font-size: 24px;
-    line-height: 53px;
+    font-size: 40px;
+    line-height: 41px;
+    
     
 }
 #signUp:hover {
@@ -756,3 +775,71 @@ color:green;
 /* .form {
     left:500px;
 } */
+
+#nutritionixsearch {
+    position:absolute;
+
+}
+#button-addon2 {
+   position: absolute;
+    left:373px;
+}
+#button-addon3 {
+    position: absolute;
+    left:0px;
+    background-color: white;
+}
+
+#signUp {
+        position: absolute;
+color:green;
+
+    text-decoration: none;
+    font-family: Sriracha;
+    font-style: normal;
+    font-weight: normal;
+  font-size:40px;
+
+  background-color: white;
+   
+    box-sizing: border-box;
+    box-shadow:unset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    
+}
+
+#logIn {
+    position: absolute;
+    color:green;
+
+    text-decoration: none;
+    font-family: Sriracha;
+    font-style: normal;
+    font-weight: normal;
+    font-size:40px;
+    background-color: white;
+   
+    box-sizing: border-box;
+    box-shadow:unset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    
+}
+#customFood {
+    position: absolute;
+    color:green;
+
+    text-decoration: none;
+    font-family: Sriracha;
+    font-style: normal;
+    font-weight: normal;
+    font-size:24px;
+    background-color: white;
+   
+    box-sizing: border-box;
+    box-shadow:unset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    width:145px;
+    left:280px;
+    top: 95px;
+}
+

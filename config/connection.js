@@ -7,8 +7,8 @@ let sequelize;
 
 process.env.DB_NAME = 'carbcounter_db'
 process.env.DB_USER = 'root'
-process.env.DB_PASSWORD = 'word123'
-
+process.env.DB_PASSWORD = 'penny'
+// word123
 if (process.env.JAWSDB_URL) {
   sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
