@@ -1,16 +1,136 @@
-<h1>We made it to the homepage.handlebars!!</h1>
+        <div id="leftWindow">
+{{#unless customOrMealDetail}}
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                {{!-- <li class="nav-item" role="presentation">
+                    <button class="nav-link link-success" id="search-tab" data-bs-toggle="tab" data-bs-target="#search"
+                        type="button" role="tab" aria-controls="search" aria-selected="true">Search Results</button>
+                </li> --}}
+                <li class="nav-item" role="presentation">
 
-{{!-- This view will show the list of user’s favorite foods for logged in users.
-Viewers not logged in can see something else, a photo or something?
-We will put the current meal partial in here on the right side --}}
+                    <button class="nav-link link-success" id="favorites-tab" data-bs-toggle="tab"
+                        data-bs-target="#favorites" type="button" role="tab" aria-controls="favorites"
+                        aria-selected="false">Favorite Foods</button>
+                </li>
 
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link link-success" id="meals-tab" data-bs-toggle="tab" data-bs-target="#meals"
+                        type="button" role="tab" aria-controls="meals" aria-selected="false">Saved Meals</button>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                {{!-- <div class="tab-pane fade show active" id="search" role="tabpanel" aria-labelledby="search-tab">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Food Name</th>
+                                <th scope="col">Serving</th>
+                                <th scope="col">Carbs (g)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           {{> searchResults }}
+                        </tbody>
+                    </table>
+                </div> --}}
 
-{{#if userFoods}}
-{{#each userFoods as |favorite|}}
-<p>{{favorite.food_name}} {{favorite.nf_total_carbohydrates}}</p>
-{{/each}}
-{{else}}
-{{#if logged_in}}
-<p>You have no favorites.</p>
+                <div class="tab-pane fade" id="favorites" role="tabpanel" aria-labelledby="favorites-tab">
+                    <table class="table table-striped table-hover" id="foodTable">
+                        <thead>
+                            <tr>
+                                <th scope="col">Food Name</th>
+                                <th scope="col">Carbs</th>
+                                <th scope="col"> Del.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{> favorites}}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="tab-pane fade" id="meals" role="tabpanel" aria-labelledby="meals-tab">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Meal Name</th>
+                                <th scope="col">Carbs</th>
+                                <th scope="col"> Del.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {{#if usermeals}}
+                          {{#each usermeals as |usermeal|}}
+                            {{> meals}}
+                          {{/each}}
+                        {{else}}
+                          <tr><td>There are no saved meals</td></tr>
+                        {{/if}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+{{/unless}}
+{{#if mealDetail}}
+    <div>
+        <h2>Meal detail</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>col 1</th>
+                    <th>col 2</th>
+                    <th>col 3</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{> mealdetail}}
+            </tbody>
+        </table>
+    </div>
 {{/if}}
+{{#if customFood}}
+    <div>
+        <h2>Custom food</h2>
+        <form class="form signup-form">
+            <div class="form-group">
+                <label for="username-signup">Food name:</label>
+                <input class="form-input" type="text" id="food-name" />
+            </div>
+            <div class="form-group">
+                <label for="email-signup">Carb#:</label>
+                <input class="form-input" type="number" id="carb-amount" />
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
 {{/if}}
+        <div id="mealName">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Enter meal name" aria-label="Recipient's username"
+                    aria-describedby="button-addon2">
+                <button class="btn btn-outline-success" type="button" id="button-addon2">💾</button>
+            </div>
+        </div>
+
+        <div id="rightWindow">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Food Name</th>
+                        <th scope="col">Carbs (total)</th>
+                        <th scope="col">Fav.</th>
+                        <th scope="col"> Del.</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{> meal }}
+                </tbody>
+            </table>
+        </div>
+{{!-- {{/unless}} --}}
+
+{{!-- {{#if logged_in}}
+<script src="/js/logout.js"></script>
+{{/if}} --}}

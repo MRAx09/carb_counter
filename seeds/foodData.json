@@ -1,61 +1,98 @@
 [
     {
-      "food_name": "Whole Wheat spaghetti cooked, 1 cup",
-      "total_carbohydrates": 37,
-      "fiber": 6
+      "food_name": "whole wheat pasta",
+      "serving_qty": 1,
+      "serving_unit": "cup",
+      "serving_weight_grams": 160,
+      "nf_total_carbohydrates": 48.11,
+      "nf_dietary_fiber": 6.24
     },
     {
-        "food_name": "Spaghetti Sauce, 1/2 cup",
-        "total_carbohydrates": 10,
-        "fiber": 2
+        "food_name": "spaghetti sauce",
+        "serving_qty": 0.5,
+        "serving_unit": "cup",
+        "serving_weight_grams": 132,
+        "nf_total_carbohydrates": 9.81,
+        "nf_dietary_fiber": 2.38
     },
     {
-        "food_name": "Meatballs, 4 medium",
-        "total_carbohydrates": 9,
-        "fiber": 2
+        "food_name": "meatballs",
+        "serving_qty": 4,
+        "serving_unit": "medium meatballs",
+        "serving_weight_grams": 113.4,
+        "nf_total_carbohydrates": 9.14,
+        "nf_dietary_fiber": 2.61
     },
     {
-        "food_name": "Milk, 1 cup",
-        "total_carbohydrates": 12,
+        "food_name": "whole milk",
+        "serving_qty": 1,
+        "serving_unit": "cup",
+        "serving_weight_grams": 244,
+        "nf_total_carbohydrates": 11.71
     },
     {
-        "food_name": "Whole Wheat Hamburger Bun",
-        "total_carbohydrates": 27,
-        "fiber": 3
+        "food_name": "whole wheat hamburger bun",
+        "serving_qty": 1,
+        "serving_unit": "roll",
+        "serving_weight_grams": 56,
+        "nf_total_carbohydrates": 25.16,
+        "nf_dietary_fiber": 3.42
     },
     {
-        "food_name": "Breaded chicken patty",
-        "total_carbohydrates": 13,
-        "fiber": 1
+        "food_name": "chicken patty",
+        "serving_qty": 1,
+        "serving_unit": "patty",
+        "serving_weight_grams": 60,
+        "nf_total_carbohydrates": 7.7,
+        "nf_dietary_fiber": 0.18
     },
     {
-        "food_name": "tomato 1 slice",
-        "total_carbohydrates": 1,
-        "fiber": 0
+        "food_name": "tomato",
+        "serving_qty": 1,
+        "serving_unit": "slice",
+        "serving_weight_grams": 20.67,
+        "nf_total_carbohydrates": 0.8,
+        "nf_dietary_fiber": 0.25
     },
     {
-        "food_name": "black beans, cooked 1/2 cup",
-        "total_carbohydrates": 20,
-        "fiber": 8
+        "food_name": "black beans",
+        "serving_qty": 0.5,
+        "serving_unit": "cup",
+        "serving_weight_grams": 86,
+        "nf_total_carbohydrates": 20.39,
+        "nf_dietary_fiber": 7.48
     },
     {
-        "food_name": "chocolate chip cookie, 1 medium",
-        "total_carbohydrates": 20
+        "food_name": "chocolate chip cookie",
+        "serving_qty": 1,
+        "serving_unit": "medium (3' diameter)",
+        "serving_weight_grams": 30,
+        "nf_total_carbohydrates": 19.61,
+        "nf_dietary_fiber": 0.6
     },
     {
-        "food_name": "apple, 1 medium",
-        "total_carbohydrates": 14,
-        "fiber": 2
+        "food_name": "apple",
+        "serving_qty": 1,
+        "serving_unit": "medium (3' dia)",
+        "serving_weight_grams": 182,
+        "nf_total_carbohydrates": 25.13,
+        "nf_dietary_fiber": 4.37
     },
     {
-        "food_name": "brown rice, 1/2  cup",
-        "total_carbohydrates": 22,
-        "fiber": 2
+        "food_name": "brown rice",
+        "serving_qty": 0.5,
+        "serving_unit": "cup",
+        "serving_weight_grams": 97.5,
+        "nf_total_carbohydrates": 22.92,
+        "nf_dietary_fiber": 1.76
     },
     {
-        "food_name": "kale, chopped 1 cup",
-        "total_carbohydrates": 7,
-        "fiber": 3
+        "food_name": "kale raw",
+        "serving_qty": 1,
+        "serving_unit": "cup",
+        "serving_weight_grams": 16,
+        "nf_total_carbohydrates": 1.4,
+        "nf_dietary_fiber": 0.58
     }
   ]
   

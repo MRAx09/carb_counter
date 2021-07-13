@@ -1,12 +1,33 @@
-<!-- Sign up inputs -->
-<div id="signUpInputs">
-    <p id="newUserName">user name</p>
-    <input type="text" id="createUserNameInput"></input>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="search" role="tabpanel" aria-labelledby="search-tab">
+    <table class="table table-striped table-hover">
 
-    <p id="newUserPw">password</p>
-    <input type="text" id="createPasswordInput"></input>
 
-    <p id="confirmPw">confirm password</p>
-    <input type="text" id="confirmPasswordInput"></input>
-    <button id="createAcntBtn">create account</button>
-</div>
+      <div class="row justify-space-between-md">
+
+        <div class="login-card">
+
+          <form class="form signup-form">
+            <div class="form-group">
+              <label for="username-signup" id="signupUserName">User Name</label>
+              <input class="form-input" type="text" id="username-signup" />
+            </div>
+            <div class="form-group">
+              <label for="email-signup" id="signUpEmail">Password</label>
+              <input class="form-input" type="password" id="email-signup" />
+            </div>
+            <div class="form-group">
+              <label for="password-signup" id="confirmPassword">Confirm Password</label>
+              <input class="form-input" type="password" id="password-signup" />
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary" type="submit" id="signupBtn2">Sign up</button>
+
+            </div>
+          </form>
+
+        </div>
+      </div>
+
+
+      <script src="/js/signin.js"></script>

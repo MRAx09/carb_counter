@@ -1,22 +1,89 @@
 const router = require('express').Router();
-const { Food, Meal, User } = require('../models');
+const { Food, Meal, User, Mealfood, Favorite } = require('../models');
 const withAuth = require('../utils/auth');
 
 
-router.get('/', async (req, res) => {
+// router.get('/', async (req, res) => {  
+//     if (!req.session.logged_in) {
+//       res.render('homepage');
+//     } else {
+//         res.render('homepage', {logged_in: req.session.logged_in});
+//     }
+// });
+router.get('/', async (req, res) => {  
   try {
-    //what should we have for home page? different view for logged in vs not logged in
+
+    if (!req.session.logged_in) {
+      res.render('homepage');
+    } else {
+      const userData = await User.findAll( {
+        where: [{
+          id: req.session.user_id,
+        }],
+        include: [{
+          model: Food,
+          as: 'user_foods',
+          required: 'false',
+        }]
+      }); 
+// ****** savedMealData section below. Don't think this returns the
+// ****** right data. We should progably change this to imitate
+// ****** what happens with UserData (above) exactly.
+      const savedMealData = await Meal.findAll({
+        where: [{
+          // user_id: req.session.user_id
+          id: req.session.user_id
+        }],
+        include: [{
+          model: Food,                  
+          through: { attribites: [] },  
+        }]
+      });
+      const usermeals = savedMealData.map((food) => food.get({ plain: true }));
+// ********* end savedMealData section
+      const userNm = await User.findAll( {
+        where: [{
+          id: req.session.user_id
+        }]
+      });
+
+      const usersName = userNm[0].dataValues.name;
+      const favorites = userData.map((fav) => fav.get({ plain: true}));
+
+      if (userData === undefined || userData.length == 0) {
+        res.render('homepage', {logged_in: req.session.logged_in});
+      } else {
+      const userFoods = favorites[0].user_foods; 
+
+// **** Add a similar if statement for userMeals?
+      if (userFoods) {
+        res.render('homepage', {   
+          userFoods,
+          usermeals,
+          logged_in: req.session.logged_in,
+        });
+      } else {  
+        res.render('homepage', {logged_in: req.session.logged_in});
+        // res.render('homepage', {logged_in: req.session.logged_in, userName: usersName});
+      }
+    }}
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
 
+router.get('/food/custom', (req, res) => {
+  const customFood = true;
+  const customOrMealDetail = true;
+  res.render('homepage', { logged_in: req.session.logged_in, customFood, customOrMealDetail })
+});
+
 router.get('/food/:id', async (req, res) => {
     try {
+      // console.log(req.params)
       const foodData = await Food.findByPk(req.params.id);
-  
       const food = foodData.get({ plain: true });
-  
       res.render('food', {
         ...food,
         logged_in: req.session.logged_in
@@ -25,6 +92,55 @@ router.get('/food/:id', async (req, res) => {
       res.status(500).json(err);
     }
   });
+
+// ***** Don't think this commented out section (GET '/favorites') 
+// ***** is needed. Remove it. This code is already in the GET '/' route. 
+// router.get('/favorites', async (req, res) => {  
+//   try {
+//     if (!req.session.logged_in) {
+//       res.render('homepage');
+//     } else {
+//       const userData = await User.findAll( {
+//         where: [{
+//           id: req.session.user_id,
+//         }],
+//         include: [{
+//           model: Food,
+//           as: 'user_foods',
+//           required: 'false',
+//         }]
+//       }); 
+
+//       const userNm = await User.findAll( {
+//         where: [{
+//           id: req.session.user_id
+//         }]
+//       });
+
+//       const usersName = userNm[0].dataValues.name;
+
+//       const favorites = userData.map((fav) => fav.get({ plain: true}));
+
+//       if (userData === undefined || userData.length == 0) {
+//         res.render('homepage', {logged_in: req.session.logged_in});
+//       } else {
+//       const userFoods = favorites[0].user_foods; 
+
+
+//       if (userFoods) {
+//         res.render('homepage', {   
+//           userFoods,
+//           logged_in: req.session.logged_in,
+//         });
+//       } else {  
+//         res.render('homepage', {logged_in: req.session.logged_in});
+//       }
+//     }}
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
 router.get('/meal/:id', async (req, res) => {
   try {
@@ -36,9 +152,7 @@ router.get('/meal/:id', async (req, res) => {
         },
       ],
     });
-
     const meal = mealData.get({ plain: true });
-
     res.render('meal', {
       ...meal,
       logged_in: req.session.logged_in
@@ -48,34 +162,108 @@ router.get('/meal/:id', async (req, res) => {
   }
 });
 
-// Use withAuth middleware to prevent access to route
-router.get('/profile', withAuth, async (req, res) => {
-  try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Meal }],
-    });
-
-    const user = userData.get({ plain: true });
-
-    res.render('profile', {
-      ...user,
-      logged_in: true
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect('/homepage');
     return;
   }
+  const onLogin = true;
+  const onSignupLogin = true;
+  res.render('login', { onLogin, onSignupLogin });
+});
 
-  res.render('login');
+router.get('/signup', (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
+  const onSignup = true;
+  const onSignupLogin = true;
+  res.render('signup', { onSignup, onSignupLogin }); 
+});
+
+
+//get route to show search result
+//first search our database, then search the nutritionix api
+router.get('/search', async (req, res) => {  
+  try {
+      console.log('*******************req.query:   ', req.query)
+      const foodSearch = await Food.findAll( {
+        where: [{
+          food_name: req.query.q,
+        }]
+      }); 
+      
+      console.log('1111111  foodSearch[0]    ', foodSearch[0])
+      
+      if (foodSearch[0] != undefined) {
+      const {dataValues: foodResult}= foodSearch[0]
+    
+      console.log('KKKKKKKKKKK     ', foodResult)
+
+      res.status(200).render('search', foodResult)
+      
+      } else 
+
+      if (foodSearch === undefined || foodSearch.length == 0) {
+
+ 
+
+        const nutritionix = require("nutritionix-api");
+
+        const YOUR_APP_ID   = '6d49b16d'; // Your APP ID
+        const YOUR_API_KEY  = 'c3f9948827ec66b95e92858e23b748e4'; // Your KEY
+
+
+        // const whatFood = document.querySelector('#nutritionixsearch').value.trim();
+        const whatFood = req.query.q
+
+        console.log(whatFood)
+
+
+        nutritionix.init(YOUR_APP_ID,YOUR_API_KEY);
+
+        nutritionix.natural.search(whatFood).then(result => {
+        console.log(result.foods[0].food_name);
+
+        const create = result.foods[0];
+        console.log('LOOK HERE')
+        console.log(create)
+
+        foodResult = {
+          food_name: create.food_name,
+          serving_qty: create.serving_qty,
+          serving_unit: create.serving_unit,
+          serving_weight_grams: create.serving_weight_grams,
+          nf_total_carbohydrates: create.nf_total_carbohydrate,
+          nf_dietary_fiber: create.nf_dietary_fiber
+        }
+
+        const newFood = Food.create(foodResult);
+        // res.status(200).json(newFood);
+        // // res.render ('search', {
+        // //   result,
+        // //   logged_in: req.session.logged_in 
+        // //   });
+        // // });
+
+        console.log('newFood........   ', newFood)
+
+      res.status(200).render('search', foodResult)
+
+      }); 
+
+      
+    }
+
+
+    
+    
+} catch (err) {
+  console.log(err);
+  res.status(500).json(err);
+}
 });
 
 module.exports = router;

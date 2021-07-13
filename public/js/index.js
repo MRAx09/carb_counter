@@ -1,3 +1,4 @@
+// Much of this is from Beau's prototpe (from the index.js file in his prototype)
 var nameTxt = $("#nameTxt");
 var flavorTxt = $("#flavor-txt");
 
@@ -43,11 +44,11 @@ let table = $(".table");
 
 var loggedInDisplay = $("#loggedInDisplay")
 
-// delete row item function
-deleteBtn.click(function () {
-    $(this).closest('tr').addClass('selected');
-    $('tr.selected').remove();
-});
+// // delete row item function
+// deleteBtn.click(function () {
+//     $(this).closest('tr').addClass('selected');
+//     $('tr.selected').remove();
+// });
 
 addFavButton.click(function () {
     // let row = $(this).closest('tr')
@@ -63,8 +64,6 @@ addFavButton.click(function () {
     });
 });
 
-
-
 showSignUpBtn.on("click", function showSignUp(e) {
     e.preventDefault();
     flavorTxt.css("display", "none");
@@ -74,14 +73,14 @@ showSignUpBtn.on("click", function showSignUp(e) {
     initialBtns.css("display", "none");
 })
 
-showLogInBtn.on("click", function showLogIn(e) {
-    e.preventDefault();
+// showLogInBtn.on("click", function showLogIn(e) {
+//     e.preventDefault();
     backBtn.css("display", "initial");
     flavorTxt.css("display", "none");
     logInInputs.css("display", "initial")
     signUpInputs.css("display", "none");
     initialBtns.css("display", "none");
-})
+// })
 
 
 backBtn.on("click", function back(e) {
@@ -99,16 +98,95 @@ var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
     return new bootstrap.Dropdown(dropdownToggleEl)
 })
 
-logInBtn.on("click", function logIn(e) {
-    e.preventDefault();
-    background.css("display", "none");
-    mainPage.css("display", "initial");
-    leftWindow.css("display", "initial");
-    rightWindow.css("display", "initial");
-    dropDown.css("display", "initial");
-    logo.css("display", "initial");
-    landingLogo.css("display", "none");
-    searchDiv.css("display", "initial")
-    mealName.css("display", "initial");
-    loggedInDisplay.css("display", "initial");
-})
+background.css("display", "none");
+mainPage.css("display", "initial");
+leftWindow.css("display", "initial");
+rightWindow.css("display", "initial");
+dropDown.css("display", "initial");
+logo.css("display", "initial");
+landingLogo.css("display", "none");
+searchDiv.css("display", "initial")
+mealName.css("display", "initial");
+loggedInDisplay.css("display", "initial");
+
+
+deleteBtn.click(async function () {
+    if (this.hasAttribute('foodDelBtn-id')) {
+      const id = this.getAttribute('foodDelBtn-id');
+        console.log('IDDDDDDDDDDDDDDDDDD');
+        console.log(id);
+      const response = await fetch(`/api/foods/${id}`, {
+        method: 'DELETE',
+      });
+  
+      if (response.ok) {
+        // document.location.replace('/api/meals/savedmeals');
+        alert('Favorite deleted');
+        $(this).closest('tr').addClass('selected');
+        $('tr.selected').remove();
+      } else {
+        alert('Failed to delete favorite');
+      }
+    }
+
+  });
+// ***** Don't think this commented out section is needed.
+// ***** Remove it. This is taken care of by the the inital GET '/' route. 
+// const mealsTabHandler = async (event) => {
+//     const response = await fetch('/api/meals/savedmeals', { 
+//       method: 'GET',
+//     });
+//     console.log('iuiuiuiuiuiuiuiu');
+//     console.log(response);
+//     if (response.ok) {
+//       // document.location.replace('/api/meals/savedmeals');
+//     } else {
+//       alert('Failed to list meals');
+//     }
+//   };
+// document.querySelector('#meals-tab').addEventListener('click', mealsTabHandler);
+
+// const favoritesTabHandler = async (event) => {
+//   const response = await fetch('/favorites', { 
+//     method: 'GET',
+//   });
+//   console.log('opopopopopopop');
+//   console.log(response);
+//   if (response.ok) {
+//     // document.location.replace('/api/meals/savedmeals');
+//   } else {
+//     alert('Failed to list favorite foods');
+//   }
+// };
+// document.querySelector('#favorites-tab').addEventListener('click', favoritesTabHandler);
+
+// ***** Don't think this commented out section is needed.
+// ***** Remove it. This is taken care of by the the inital GET '/' route. 
+// const delFoodHandler = async (event) => {
+//     console.log('jjjjjjjjjjjjjjjjjjj');
+//     if (event.target.hasAttribute('foodDelBtn-id')) {
+//       const id = event.target.getAttribute('foodDelBtn-id');
+//         console.log('IDDDDDDDDDDDDDDDDDD');
+//         console.log(id);
+//       const response = await fetch(`/api/foods/${id}`, { //****??? */
+//         method: 'DELETE',
+//       });
+  
+//       if (response.ok) {
+//         // document.location.replace('/api/meals/savedmeals');
+//         alert('Favorite deleted');
+
+//       } else {
+//         alert('Failed to delete favorite');
+//       }
+//     }
+//   };  
+//   document
+//     .querySelector('.deleteBtn')
+//     .addEventListener('click', delFoodHandler);
+
+    // delete row item function
+// deleteBtn.click(function () {
+//     $(this).closest('tr').addClass('selected');
+//     $('tr.selected').remove();
+// });

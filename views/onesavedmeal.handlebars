@@ -1,0 +1,17 @@
+
+<br>
+<h3>{{meal.meal_name}}</h3>
+
+{{#each meal.food as |food|}}
+<p>{{food.food_name}}</p>
+<p>{{food.serving_qty}}  {{food.serving_unit}}  or  {{food.serving_weight_grams}} grams</p>  
+<p>total carbohydrates: {{food.nf_total_carbohydrates}} </p>
+<p>dietary fiber: {{food.nf_dietary_fiber}}</p>
+{{/each}}
+<div class="delete-btn">
+  <button class="btn btn-sm btn-danger" data-id="{{meal.id}}">Delete</button>
+</div>
+
+{{>currentmeal}}
+
+<script src="/js/deleteMeal.js"></script>
