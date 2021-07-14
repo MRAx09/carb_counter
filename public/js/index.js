@@ -194,7 +194,7 @@ deleteBtn.click(async function () {
 
 //Code to total carbohydrates in current meal
 var cls = document.getElementById("curMealTable").getElementsByTagName("td");
-if (cls) {
+// if (cls) {
   var sum = 0;
   for (var i = 0; i < cls.length; i++){
       if(cls[i].className == "carbRow"){
@@ -205,4 +205,4 @@ if (cls) {
   var tableBody = document.getElementById("currentMealTableBody");
   var text = document.createTextNode(` Total carbs: ${sum}`);
   tableBody.appendChild(text);
-};
+// };

@@ -57,50 +57,50 @@ addBtn.click(async function () {
 
   });
 
-
-
-
-//savebuttonhandler function
-
-//add save for current meal, post method, put route in homeroutes
-//then clear local storage
-
-
-
-//save meal listener - save meal handler
-
-const saveCurrentMealHandler = async (event) => {
-    event.preventDefault();
-    console.log('blah blah blah blah');
-    console.log(event);
-
+  
+var saveMealBtn = $(".cur-meal-save-button");
+saveMealBtn.click(async function () {
     const mealname = document.querySelector('#current-meal-name').value.trim();
     console.log(`This is the meal name: ${mealname}`);
     const foodIds = localStorage.getItem("currentMealFoods");  
     console.log('foodIds:     ', foodIds)
-  
-  
+
     const response = await fetch('/api/meals/', {
       method: 'POST',
       body: JSON.stringify({ mealname, foodIds }),
       headers: { 'Content-Type': 'application/json' },
     });
-
-    // if (response.ok) {
-    //   document.location.replace('/');   
-    // } else {
-    //   alert('Failed to save meal.');
-    // }
-   
-  };
+    if (response.ok) {
+      document.location.replace('/');   
+    } else {
+      alert('Failed to save meal.');
+    }
+});
 
 
+// Old save button function below. This worked, but it caused 
+// Current Meal button to break for some reason.
 
+// const saveCurrentMealHandler = async (event) => {
+//     event.preventDefault();
+//     console.log(event);
 
-  document
-  .querySelector('.cur-meal-save-button')
-  .addEventListener('click', saveCurrentMealHandler);
-
-
-
-
+//     const mealname = document.querySelector('#current-meal-name').value.trim();
+//     // console.log(`This is the meal name: ${mealname}`);
+//     const foodIds = localStorage.getItem("currentMealFoods");  
+//     // console.log('foodIds:     ', foodIds)
+  
+//     const response = await fetch('/api/meals/', {
+//       method: 'POST',
+//       body: JSON.stringify({ mealname, foodIds }),
+//       headers: { 'Content-Type': 'application/json' },
+//     });
+//     // if (response.ok) {
+//     //   document.location.replace('/');   
+//     // } else {
+//     //   alert('Failed to save meal.');
+//     // }
+//   };
+//   document
+//   .querySelector('.cur-meal-save-button')
+//   .addEventListener('click', saveCurrentMealHandler);
