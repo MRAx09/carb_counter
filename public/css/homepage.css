@@ -22,7 +22,9 @@ a {
     display:none;
 
     position: absolute;
+
     width: 415px;
+
     height: 38px;
     left: 62px;
     top: 177px;
@@ -36,7 +38,9 @@ a {
     display:none;
 
     position: absolute;
+
     width: 374px;
+
     height: 38px;
     left: 544px;
     top: 177px;
@@ -115,6 +119,7 @@ left: 518px;
 display:none;
 position: absolute;
 
+
 left: 120px;
 top:94px;
 
@@ -128,12 +133,14 @@ box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 border-radius: 10px; */
 }
 #landingLogoImage {
+
     position: absolute;
     display:initial;
     width: 500px;
     height: 250px;
     top:200px;
     left:-10px
+
    
 }
 #landingLogo {
@@ -252,22 +259,7 @@ color: #000000;
 
 }
 
-/* #showLogInBtn {
-display:initial;
-position: absolute;
-width: 141px;
-height: 48px;
-left:600px;
-top: 400px ;
-margin:auto;
-background: #9CDA8D;
-border: 2px solid #000000;
-box-sizing: border-box;
-border-radius: 8px;
-}
-    #showLogInBtn:hover {
-       background: #8ecde0;
-    } */
+
 
 #showSignUpBtn {
 display:initial;
@@ -528,8 +520,9 @@ font-family: Sriracha;
 font-style: normal;
 font-weight: normal;
 font-size: 30px;
+
 line-height: 31px;
-}
+
 
 #email-login {
 
@@ -613,19 +606,24 @@ border-radius: 10px;
 }
 
 #logIn {
+
  position: absolute;
+
 color: green;
     text-decoration: none;
     font-family: Sriracha;
     font-style: normal;
     font-weight: normal;
+
     font-size: 50px;
     line-height: 50px;
     left: 150px;
+
 }
 #logIn:hover {
     color:blue
 }
+
 #logout {
         position: absolute;
         left: 0px;
@@ -641,6 +639,7 @@ color:green;
 background-color: white;
 border-radius: 10px;
 }
+
 #logOut {
     position: absolute;
         left: 0px;
@@ -657,17 +656,20 @@ border-radius: 10px;
 
 
 #signUp {
+
     position: absolute;
     color:green;
+
 
     text-decoration: none;
     font-family: Sriracha;
     font-style: normal;
     font-weight: normal;
+
     font-size: 40px;
     line-height: 41px;
     
-    
+
 }
 #signUp:hover {
     color:blue;
@@ -770,9 +772,7 @@ border-radius: 10px;
    
 }
 
-/* .form {
-    left:500px;
-} */
+
 
 #nutritionixsearch {
     position:absolute;
@@ -928,3 +928,4 @@ color:green;
 #customFood {
     display:none;
 }
+
