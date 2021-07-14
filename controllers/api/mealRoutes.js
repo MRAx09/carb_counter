@@ -70,16 +70,17 @@ router.delete('/:id', withAuth, async (req, res) => {
 // *****Don't think we'll need this route (GET '/savedmeals').
 // *****Initial homepage route (GET '/') gets this.
 router.get('/savedmeals', withAuth, async (req, res) => {
+  console.log('user_id:     ', req.session.user_id)
   try {
     const savedMealData = await Meal.findAll({
-      where: [{
+      where: {
         // user_id: req.session.user_id
         id: req.session.user_id
-      }],
-      include: [{
-        model: Food,                  //??????
-        through: { attributes: [] },   //??????
-      }]
+      },
+      include: {
+        model: Food,                  
+        through: { attributes: [] },   
+      }
     });
 
     console.log(savedMealData);
@@ -92,7 +93,7 @@ router.get('/savedmeals', withAuth, async (req, res) => {
     console.log('mmmmmmmmmmmmmmmm')
 
     if (usermeals) {
-      res.render('homepage', {   
+      res.render('savedmeals', {   
         usermeals,
         logged_in: req.session.logged_in,
       });

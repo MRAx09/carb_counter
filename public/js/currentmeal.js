@@ -116,6 +116,7 @@ saveMealBtn.click(async function () {
       headers: { 'Content-Type': 'application/json' },
     });
     if (response.ok) {
+       localStorage.removeItem("currentMealFoods")
       document.location.replace('/');   
     } else {
       alert('Failed to save meal.');
