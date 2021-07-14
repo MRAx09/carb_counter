@@ -190,3 +190,17 @@ deleteBtn.click(async function () {
 //     $(this).closest('tr').addClass('selected');
 //     $('tr.selected').remove();
 // });
+
+
+//Code to total carbohydrates in current meal
+var cls = document.getElementById("curMealTable").getElementsByTagName("td");
+var sum = 0;
+for (var i = 0; i < cls.length; i++){
+    if(cls[i].className == "carbRow"){
+      var carbColString = cls[i].innerHTML;
+      sum += Number(carbColString.substring(0, carbColString.indexOf("g")));
+    };
+}
+var tableBody = document.getElementById("currentMealTableBody");
+var text = document.createTextNode(` Total carbs: ${sum}`);
+tableBody.appendChild(text);
