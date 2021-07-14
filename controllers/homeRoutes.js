@@ -58,8 +58,7 @@ router.get('/', async (req, res) => {
 
 const savedMealData = await Meal.findAll({
   where: {
-    // user_id: req.session.user_id
-    id: req.session.user_id
+    user_id: req.session.user_id
   },
   include: {
     model: Food,                  
@@ -388,15 +387,8 @@ router.get('/searchtocurrent', async (req, res) => {
 
       console.log('largest:        ', largest)
       
-
-      var largObj = {}, send = [];
-      largObj.food = 'foodid';
-      largObj.id = largest;
-      send.push(largObj);
-
-        console.log('SEND:     ', send)
       
-      res.render('currentmeal', send)
+      res.render('currentmeal', {largest})
       
     
 } catch (err) {

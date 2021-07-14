@@ -124,6 +124,8 @@ saveMealBtn.click(async function () {
 });
 
 
+
+
 // Old save button function below. This worked, but it caused 
 // Current Meal button to break for some reason.
 
