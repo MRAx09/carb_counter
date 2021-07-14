@@ -658,7 +658,7 @@ border-radius: 10px;
 
 #signUp {
     position: absolute;
-color:green;
+    color:green;
 
     text-decoration: none;
     font-family: Sriracha;
@@ -920,4 +920,11 @@ color:green;
     font-weight: normal;
     left:230px;
     top:260px; 
+}
+.go-to-current-meal {
+    left:700px;
+    top:180px;
+}
+#customFood {
+    display:none;
 }
