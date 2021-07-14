@@ -69,37 +69,37 @@ addBtn.click(async function () {
 
 //save meal listener - save meal handler
 
-// const saveCurrentMealHandler = async (event) => {
-//     event.preventDefault();
-//     console.log(event);
+const saveCurrentMealHandler = async (event) => {
+    event.preventDefault();
+    console.log('blah blah blah blah');
+    console.log(event);
 
-//   const mealname = document.querySelector('#XXXXXX').value.trim();
-//   const foodIds = localStorage.getItem("currentMealFoods");
+    const mealname = document.querySelector('#current-meal-name').value.trim();
+    console.log(`This is the meal name: ${mealname}`);
+    const foodIds = localStorage.getItem("currentMealFoods");  
+    console.log('foodIds:     ', foodIds)
   
-//   console.log('foodIds:     ', foodIds)
   
+    const response = await fetch('/api/meals/', {
+      method: 'POST',
+      body: JSON.stringify({ mealname, foodIds }),
+      headers: { 'Content-Type': 'application/json' },
+    });
 
-  
-//     const response = await fetch('/api/meals/', {
-//       method: 'POST',
-//       body: JSON.stringify({ mealname, foodIds }),
-//       headers: { 'Content-Type': 'application/json' },
-//     });
-
-//     // if (response.ok) {
-//     //   document.location.replace('/');   
-//     // } else {
-//     //   alert('Failed to save meal.');
-//     // }
+    // if (response.ok) {
+    //   document.location.replace('/');   
+    // } else {
+    //   alert('Failed to save meal.');
+    // }
    
-//   };
+  };
 
 
 
 
-//   document
-//   .querySelector('.XXXXXXX')
-//   .addEventListener('click', saveCurrentMealHandler);
+  document
+  .querySelector('.cur-meal-save-button')
+  .addEventListener('click', saveCurrentMealHandler);
 
 
 

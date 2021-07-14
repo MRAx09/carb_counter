@@ -35,10 +35,12 @@ router.get('/savedmeals/:id', withAuth, async (req, res) => {
 router.post('/', withAuth, async (req, res) => {
   try {
     const newMeal = await Meal.create({
-      ...req.body,
+      // ...req.body,
+      meal_name: req.body.mealname,
       user_id: req.session.user_id,
     });
-
+    console.log('zzzzz');
+    console.log(req.body);
     res.status(200).json(newMeal);
   } catch (err) {
     res.status(400).json(err);
