@@ -44,9 +44,7 @@
                         </thead>
                         <tbody>
                         {{#if usermeals}}
-                          {{#each usermeals as |usermeal|}}
                             {{> meals}}
-                          {{/each}}
                         {{else}}
                           <tr><td>There are no saved meals</td></tr>
                         {{/if}}
@@ -97,7 +95,9 @@
                 <button class="btn btn-outline-success go-to-current-meal" type="button">Current Meal</button>
             </div>
 
- <script src="/js/currentmeal.js"></script>       
+ <script src="/js/currentmeal.js"></script>  
+  <script src="/js/deletemeal.js"></script>       
+     
 
 {{!-- {{/unless}} --}}
 
