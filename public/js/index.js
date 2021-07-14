@@ -42,6 +42,8 @@ var searchDiv = $("#searchDiv")
 var favorites = $("#favorites")
 let table = $(".table");
 
+var customFood = $("#customFood")
+
 var loggedInDisplay = $("#loggedInDisplay")
 
 // // delete row item function
@@ -49,6 +51,23 @@ var loggedInDisplay = $("#loggedInDisplay")
 //     $(this).closest('tr').addClass('selected');
 //     $('tr.selected').remove();
 // });
+
+// customFood.click(function () {
+
+
+//   leftWindow.css("display", "initial");
+//   leftWindow.css("left", "500px");
+
+//   dropDown.css("display", "initial");
+//   logo.css("display", "initial");
+//   landingLogo.css("display", "initial");
+//   searchDiv.css("display", "initial")
+//   mealName.css("display", "initial");
+//   loggedInDisplay.css("display", "initial");
+
+// })
+
+
 
 addFavButton.click(function () {
   // let row = $(this).closest('tr')
@@ -130,6 +149,18 @@ deleteBtn.click(async function () {
   }
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
 // ***** Don't think this commented out section is needed.
 // ***** Remove it. This is taken care of by the the inital GET '/' route. 
 // const mealsTabHandler = async (event) => {

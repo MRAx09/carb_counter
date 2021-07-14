@@ -843,3 +843,83 @@ color:green;
     top: 95px;
 }
 
+#foodNameTxt {
+    position: absolute;
+    text-decoration: none;
+    font-family: Sriracha;
+    font-style: normal;
+    font-weight: normal;
+    left:160px;
+    top:70px;
+    color:green;
+    
+}
+
+#customFoodTitle {
+    position: absolute;
+    text-decoration: none;
+    font-family: Sriracha;
+    font-style: normal;
+    font-weight: normal;
+    left:70px;
+    top:10px;
+    color:green;
+}
+
+#food-name {
+    position: absolute;
+    text-decoration: none;
+    font-family: Short Stack;
+    font-style: normal;
+    font-weight: normal;
+    left:100px;
+    top:100px;
+}
+
+#carb-amount {
+    position: absolute;
+    text-decoration: none;
+    font-family: Sriracha;
+    font-style: normal;
+    font-weight: normal;
+}
+
+#carbAmtTxt {
+    position: absolute;
+    text-decoration: none;
+    font-family: Sriracha;
+    font-style: normal;
+    font-weight: normal;
+    left:135px;
+    top:160px;
+    color:green;
+}
+
+#carb-amount{
+    position: absolute;
+    text-decoration: none;
+    font-family: Sriracha;
+    font-style: normal;
+    font-weight: normal;
+    left:108px;
+    top:190px;
+}
+
+#customSubBtn {
+    position: absolute;
+    text-decoration: none;
+    font-family: Sriracha;
+    font-style: normal;
+    font-weight: normal;
+    left:100px;
+    top:260px;
+}
+#customBackBtn {
+    position: absolute;
+    text-decoration: none;
+    font-family: Sriracha;
+    font-style: normal;
+    font-weight: normal;
+    left:230px;
+    top:260px; 
+}
