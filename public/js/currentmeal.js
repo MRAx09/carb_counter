@@ -102,7 +102,7 @@ searchtocurrentBtn.click(async function () {
 
 const saveCurrentMealHandler = async (event) => {
     event.preventDefault();
-    console.log('blah blah blah blah');
+    console.log('in the save current meal handler');
     console.log(event);
 
     const mealname = document.querySelector('#current-meal-name').value.trim();
@@ -117,11 +117,14 @@ const saveCurrentMealHandler = async (event) => {
       headers: { 'Content-Type': 'application/json' },
     });
 
-    // if (response.ok) {
-    //   document.location.replace('/');   
-    // } else {
-    //   alert('Failed to save meal.');
-    // }
+
+
+    if (response.ok) {
+       localStorage.removeItem("currentMealFoods")
+      document.location.replace('/');   
+    } else {
+      alert('Failed to save meal.');
+    }
    
   };
 

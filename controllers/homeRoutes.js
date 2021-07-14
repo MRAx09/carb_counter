@@ -31,18 +31,59 @@ router.get('/', async (req, res) => {
 // ****** savedMealData section below. Don't think this returns the
 // ****** right data. We should progably change this to imitate
 // ****** what happens with UserData (above) exactly.
-      const savedMealData = await Meal.findAll({
-        where: [{
-          // user_id: req.session.user_id
-          id: req.session.user_id
-        }],
-        include: [{
-          model: Food,                  
-          through: { attributes: [] },  
-        }]
-      });
-      const usermeals = savedMealData.map((food) => food.get({ plain: true }));
+
+
+
+      // const savedMealData = await Meal.findAll({
+      //   where: {
+      //     // user_id: req.session.user_id
+      //     id: req.session.user_id
+      //   },
+      //   include: {
+      //     model: Food,                  
+      //     through: { attributes: [] },  
+      //   }
+      // });
+      // const usermeals = savedMealData.map((food) => food.get({ plain: true }));
+
+
+
 // ********* end savedMealData section
+
+
+//&&&&&&  adding new saved meal section
+
+
+
+
+const savedMealData = await Meal.findAll({
+  where: {
+    // user_id: req.session.user_id
+    id: req.session.user_id
+  },
+  include: {
+    model: Food,                  
+    through: { attributes: [] },   
+  }
+});
+
+console.log(savedMealData);
+console.log('++++++++++++++++++++++++++')
+const usermeals = savedMealData.map((food) => food.get({ plain: true }));
+
+console.log(usermeals)
+console.log(JSON.stringify(usermeals))
+if (usermeals.hasOwnProperty("food_name")){ console.log(usermeals.food_name)};
+console.log('mmmmmmmmmmmmmmmm')
+
+
+
+
+
+//&&&&&&  end of new saved meal section
+
+
+
       const userNm = await User.findAll( {
         where: [{
           id: req.session.user_id
