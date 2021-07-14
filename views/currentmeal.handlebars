@@ -17,7 +17,7 @@ the  search.handlebars view, and the homepage.handlebars view --}}
                         <th scope="col">Serving</th>
                         <th scope="col">Carbs (g)</th>
                         <th scope="col">Fav.</th>
-                        <th scope="col"> Del.</th>
+                        {{!-- <th scope="col"> Del.</th> --}}
                     </tr>
                 </thead>
                 <tbody id="currentMealTableBody">
@@ -28,7 +28,7 @@ the  search.handlebars view, and the homepage.handlebars view --}}
                         <td>{{ food.serving_qty }} {{ food.serving_unit }} <br> ({{ food.serving_weight_grams }}g)</td>
                         <td class="carbRow">{{food.nf_total_carbohydrates}}g<br>(includes {{food.nf_dietary_fiber}}g fiber)</td>
                         <td><button type="button" class="btn btn-sm btn-outline-success addFavButton">❤️</button></td>
-                        <td><button type="button" class="btn btn-sm btn-outline-danger deleteBtn">🗑️</button></td>
+                        {{!-- <td><button type="button" class="btn btn-sm btn-outline-danger deleteBtn">🗑️</button></td> --}}
                     </tr>
 
                     {{/each}}
