@@ -10,9 +10,8 @@ const withAuth = require('../utils/auth');
 //         res.render('homepage', {logged_in: req.session.logged_in});
 //     }
 // });
-router.get('/', async (req, res) => {  
+router.get('/', async (req, res) => {
   try {
-
     if (!req.session.logged_in) {
       // res.render('landingpage');
       const onSignupLogin = true;
@@ -26,57 +25,61 @@ router.get('/', async (req, res) => {
           model: Food,
           as: 'user_foods',
           required: 'false',
-        }]
-      }); 
+        },
+        {
+          model: Meal,
+          as: 'meals',
+          required: 'false',
+        }],
+      });
 // ****** savedMealData section below. Don't think this returns the
 // ****** right data. We should progably change this to imitate
 // ****** what happens with UserData (above) exactly.
-      const savedMealData = await Meal.findAll({
-        where: [{
-          // user_id: req.session.user_id
-          id: req.session.user_id
-        }],
-        include: [{
-          model: Food,                  
-          through: { attributes: [] },  
-        }]
-      });
-      const usermeals = savedMealData.map((food) => food.get({ plain: true }));
+      // const savedMealData = await Meal.findAll({
+      //   where: [{
+      //     // user_id: req.session.user_id
+      //     id: req.session.user_id
+      //   }],
+      //   include: [{
+      //     model: Food,
+      //     through: { attributes: [] },
+      //   }]
+      // });
+      // const usermeals = savedMealData.map((food) => food.get({ plain: true }));
 // ********* end savedMealData section
       const userNm = await User.findAll( {
         where: [{
           id: req.session.user_id
         }]
       });
-
       const usersName = userNm[0].dataValues.name;
       const favorites = userData.map((fav) => fav.get({ plain: true}));
-
       if (userData === undefined || userData.length == 0) {
         res.render('homepage', {logged_in: req.session.logged_in});
       } else {
-      const userFoods = favorites[0].user_foods; 
-
-      console.log('*******userFood******    ', userFoods)
-      console.log('******************** userMeals:     ', usermeals)
-
-// **** Add a similar if statement for userMeals?
-      if (userFoods) {
-        res.render('homepage', {   
-          userFoods,
-          usermeals,
-          logged_in: req.session.logged_in,
-        });
-      } else {  
-        res.render('homepage', {logged_in: req.session.logged_in});
-        // res.render('homepage', {logged_in: req.session.logged_in, userName: usersName});
+        const userFoods = favorites[0].user_foods;
+        const usermeals = favorites[0].meals;
+        console.log('*******userFood******    ', userFoods)
+        console.log('******************** userMeals:     ', usermeals)
+  // **** Add a similar if statement for userMeals?
+        if (userFoods || usermeals) {
+          res.render('homepage', {
+            userFoods,
+            usermeals,
+            logged_in: req.session.logged_in,
+          });
+        } else {
+          res.render('homepage', {logged_in: req.session.logged_in});
+          // res.render('homepage', {logged_in: req.session.logged_in, userName: usersName});
+        }
       }
-    }}
+    }
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
+
 
 router.get('/food/custom', (req, res) => {
   const customFood = true;
