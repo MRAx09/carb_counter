@@ -11,6 +11,7 @@
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
+                                <th scope="col">Add to <br>Current Meal</th>
                                 <th scope="col">Food Name</th>
                                 <th scope="col">Serving</th>
                                 <th scope="col">Carbs (g)</th>
@@ -18,6 +19,7 @@
                         </thead>
                         <tbody>
                            <tr>
+                                <td class = "addToCur"><button type="button" class="btn btn-sm btn-outline addBtn" addToCurBtn-id={{this.id}} data-id="{{this.id}}">+</button>
                                 <td>{{ this.food_name }}</td>
                                 <td>{{ this.serving_qty }} {{ this.serving_unit }} <br> ({{ this.serving_weight_grams }}g)</td>
                                 <td>{{ this.nf_total_carbohydrates }}g     <br>   (includes {{ this.nf_dietary_fiber }}g fiber)</td>
@@ -32,15 +34,15 @@
             </div>
         </div>
 
-        <div id="mealName">
+        {{!-- <div id="mealName">
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Enter meal name" aria-label="Recipient's username"
                     aria-describedby="button-addon2">
                 <button class="btn btn-outline-success" type="button" id="button-addon2">💾</button>
             </div>
-        </div>
+        </div> --}}
 
-        <div id="rightWindow">
+        {{!-- <div id="rightWindow">
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
@@ -54,8 +56,8 @@
                     {{> meal }}
                 </tbody>
             </table>
-        </div>
-
+        </div> --}}
+<script src="/js/current.js"></script>
 
 {{!-- {{#if logged_in}}
 <script src="/js/logout.js"></script>

@@ -1,9 +1,14 @@
-
+{{#each usermeals as |usermeal| }}
     <tr>
-      <td>{{meal_name}}</td>
-      <td>Carb#??????</td>
-      <td><button type="button" class="btn btn-sm btn-outline-danger deleteBtn" mealDelBtn-id={{meal.id}}>🗑️</button></td>
+      <a href="/api/meals/savedmeals/{{usermeal.id}}"><td>{{usermeal.meal_name}}</td></a>  
+      <td><button type="button" class="btn btn-sm btn-outline-danger deleteBtn" mealDelBtn-id={{usermeal.id}}>🗑️</button></td>
     </tr>
+
+  {{/each}}
+
+
+
+{{!-- ------------------------------------- --}}
 
 {{!-- {{#if usermeals}}
   {{#each usermeals as |usermeal|}}

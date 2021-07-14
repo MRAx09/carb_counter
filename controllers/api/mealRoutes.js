@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Meal, Food, Favorite, User, Mealfood } = require('../../models');
+const { Meal, Food, Favorite, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/savedmeals/:id', withAuth, async (req, res) => {
@@ -11,7 +11,7 @@ router.get('/savedmeals/:id', withAuth, async (req, res) => {
       },
       include: {
         model: Food,
-        through: { attribites: [] },
+        through: { attributes: [] },
       },
     });
 
@@ -34,20 +34,12 @@ router.get('/savedmeals/:id', withAuth, async (req, res) => {
 
 router.post('/', withAuth, async (req, res) => {
   try {
-
-    console.log('req.body:     ', req.body)
-
     const newMeal = await Meal.create({
       ...req.body,
       user_id: req.session.user_id,
     });
 
     res.status(200).json(newMeal);
-
-    const mealFoods = await Mealfood.bulkCreate({
-      meal_id: 'XXXXX',
-      food_id: ['X, X, X']
-    })
   } catch (err) {
     res.status(400).json(err);
   }
@@ -84,7 +76,7 @@ router.get('/savedmeals', withAuth, async (req, res) => {
       }],
       include: [{
         model: Food,                  //??????
-        through: { attribites: [] },   //??????
+        through: { attributes: [] },   //??????
       }]
     });
 
