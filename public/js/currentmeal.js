@@ -53,14 +53,59 @@ addBtn.click(async function () {
         window.location.replace(`/currentmeal?q=${currentStored}`)
         // window.location.replace(`/?q=${currentStored}`)
 
+    } else {
+        console.log('NO ID')
     }
 
   });
 
+
   
+
+
+
+  var searchtocurrentBtn = $(".search-to-current");
+
+searchtocurrentBtn.click(async function () {
+    console.log('IN CLICK')
+    if (this.hasAttribute('search-to-current-id')) {
+        const name = this.getAttribute('search-to-current-id');
+          console.log('NAME:      ', name);
+  
+          
+          //go to currentmeal get route and send list of food ids
+          window.location.replace(`/searchtocurrent?q=${name}`)
+          
+  
+      } else {
+          return
+      }
+});
+
+
+//get id of searched item and put into local storage
+
+
+
+
+
+
+
+
+//savebuttonhandler function
+
+//add save for current meal, post method, put route in homeroutes
+//then clear local storage
+
+
+
+//save meal listener - save meal handler
+
+
+
 var saveMealBtn = $(".cur-meal-save-button");
 saveMealBtn.click(async function () {
-    const mealname = document.querySelector('#current-meal-name').value.trim();
+  const mealname = document.querySelector('#current-meal-name').value.trim();
     console.log(`This is the meal name: ${mealname}`);
     const foodIds = localStorage.getItem("currentMealFoods");  
     console.log('foodIds:     ', foodIds)
