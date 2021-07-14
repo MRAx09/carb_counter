@@ -317,10 +317,17 @@ router.get('/currentmeal', async (req, res) => {
   try {
       console.log('*******************req.query:   ', req.query)
       const list = req.query.q
-      console.log('LLLLLLL list LLLLLL     ', list);
+      console.log(typeof list)
+
+      const nospaces = list.replace(/\s/g, "")
+      console.log('nospaces:     ', nospaces)
+
+      
+      
+      // console.log('LLLLLLL list LLLLLL     ', list);
        
       //convert comma separated list without spaces into an array
-      const array = list.split(/["',]+/);
+      const array = nospaces.split(/["',]+/);
       console.log('ARRAY...:    ', array)
 
       //convert array of strings into array of numbers
@@ -334,14 +341,14 @@ router.get('/currentmeal', async (req, res) => {
         }]
       }); 
 
-      console.log("##### current Meal Foods #####     ", currentMealFoods)
+      // console.log("##### current Meal Foods #####     ", currentMealFoods)
       
 
       
 
       const foods = currentMealFoods.map((food) => food.get({ plain: true }));
 
-      console.log('foods..:      ', foods)
+      // console.log('foods..:      ', foods)
 
 
       //put foods onto current meal partial in homepage.handlebars
@@ -375,7 +382,7 @@ router.get('/searchtocurrent', async (req, res) => {
       var numberArray = [];
       console.log(foodSearch.length)
 
-      // if (foodSearch.length > 1) {
+      // if 
 
         for (i=0; i<foodSearch.length; i++) {
           numberArray.push(foodSearch[i].dataValues.id)
@@ -388,7 +395,7 @@ router.get('/searchtocurrent', async (req, res) => {
       console.log('largest:        ', largest)
       
       
-      res.render('currentmeal', {largest})
+      res.render('idview', {largest})
       
     
 } catch (err) {
