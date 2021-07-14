@@ -10,7 +10,7 @@ the  search.handlebars view, and the homepage.handlebars view --}}
         </div>
 
         <div id="rightWindow">
-            <table class="table table-striped table-hover">
+            <table class="table table-striped table-hover" id="curMealTable">
                 <thead>
                     <tr>
                         <th scope="col">Food <br>Name</th>
@@ -20,13 +20,13 @@ the  search.handlebars view, and the homepage.handlebars view --}}
                         <th scope="col"> Del.</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="currentMealTableBody">
                     {{#each foods as |food|}}
 
                     <tr>
                         <td>{{ food.food_name }}</td> 
                         <td>{{ food.serving_qty }} {{ food.serving_unit }} <br> ({{ food.serving_weight_grams }}g)</td>
-                        <td>{{food.nf_total_carbohydrates}}g<br>(includes {{food.nf_dietary_fiber}}g fiber)</td>
+                        <td class="carbRow">{{food.nf_total_carbohydrates}}g<br>(includes {{food.nf_dietary_fiber}}g fiber)</td>
                         <td><button type="button" class="btn btn-sm btn-outline-success addFavButton">❤️</button></td>
                         <td><button type="button" class="btn btn-sm btn-outline-danger deleteBtn">🗑️</button></td>
                     </tr>
