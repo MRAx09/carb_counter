@@ -53,10 +53,41 @@ addBtn.click(async function () {
         window.location.replace(`/currentmeal?q=${currentStored}`)
         // window.location.replace(`/?q=${currentStored}`)
 
+    } else {
+        console.log('NO ID')
     }
 
   });
 
+
+
+  var searchtocurrentBtn = $(".search-to-current");
+
+searchtocurrentBtn.click(async function () {
+    console.log('IN CLICK')
+    if (this.hasAttribute('search-to-current-id')) {
+        const name = this.getAttribute('search-to-current-id');
+          console.log('NAME:      ', name);
+  
+          
+          //go to currentmeal get route and send list of food ids
+          window.location.replace(`/searchtocurrent?q=${name}`)
+          
+  
+      } else {
+          return
+      }
+});
+
+
+//get id of searched item and put into local storage
+
+
+
+
+
+
+    
 
 
 

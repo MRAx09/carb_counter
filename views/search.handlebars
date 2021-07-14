@@ -19,7 +19,7 @@
                         </thead>
                         <tbody>
                            <tr>
-                                <td class = "addToCur"><button type="button" class="btn btn-sm btn-outline addBtn" addToCurBtn-id={{this.id}} data-id="{{this.id}}">+</button>
+                                <td class = "addToCur"><button type="button" class="btn btn-sm btn-outline search-to-current" search-to-current-id={{this.food_name}} data-id="{{this.food_name}}">+</button>
                                 <td>{{ this.food_name }}</td>
                                 <td>{{ this.serving_qty }} {{ this.serving_unit }} <br> ({{ this.serving_weight_grams }}g)</td>
                                 <td>{{ this.nf_total_carbohydrates }}g     <br>   (includes {{ this.nf_dietary_fiber }}g fiber)</td>
@@ -57,7 +57,7 @@
                 </tbody>
             </table>
         </div> --}}
-<script src="/js/current.js"></script>
+<script src="/js/currentmeal.js"></script>
 
 {{!-- {{#if logged_in}}
 <script src="/js/logout.js"></script>
