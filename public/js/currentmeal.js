@@ -1,3 +1,24 @@
+var toCurrentMealBtn = $(".go-to-current-meal");
+
+toCurrentMealBtn.click(async function () {
+    console.log('IN CLICK')
+    if (localStorage.getItem("currentMealFoods") === null) {
+        // window.location.replace(`/nofoodsincurrentmeal`) 
+        //above prob not best way as there is nothing from database to do a CRUD with
+
+        console.log('CURRENT MEAL EMPTY - need way to show to user')
+        
+        //can we put here a way to make some html visible only in this if statement?
+        //or maybe a modal?
+    }
+    else {
+        const theFoods = JSON.parse(localStorage.getItem("currentMealFoods"))
+        window.location.replace(`/currentmeal?q=${theFoods}`)
+
+    }
+})
+
+
 
 var addBtn = $(".addBtn");
 
@@ -30,6 +51,7 @@ addBtn.click(async function () {
         
         //go to currentmeal get route and send list of food ids
         window.location.replace(`/currentmeal?q=${currentStored}`)
+        // window.location.replace(`/?q=${currentStored}`)
 
     }
 
@@ -47,30 +69,30 @@ addBtn.click(async function () {
 
 //save meal listener - save meal handler
 
-const saveCurrentMealHandler = async (event) => {
-    event.preventDefault();
-    console.log(event);
+// const saveCurrentMealHandler = async (event) => {
+//     event.preventDefault();
+//     console.log(event);
 
-  const mealname = document.querySelector('#XXXXXX').value.trim();
-  const foodIds = localStorage.getItem("currentMealFoods");
+//   const mealname = document.querySelector('#XXXXXX').value.trim();
+//   const foodIds = localStorage.getItem("currentMealFoods");
   
-  console.log('foodIds:     ', foodIds)
+//   console.log('foodIds:     ', foodIds)
   
 
   
-    const response = await fetch('/api/meals/', {
-      method: 'POST',
-      body: JSON.stringify({ mealname, foodIds }),
-      headers: { 'Content-Type': 'application/json' },
-    });
+//     const response = await fetch('/api/meals/', {
+//       method: 'POST',
+//       body: JSON.stringify({ mealname, foodIds }),
+//       headers: { 'Content-Type': 'application/json' },
+//     });
 
-    // if (response.ok) {
-    //   document.location.replace('/');   
-    // } else {
-    //   alert('Failed to save meal.');
-    // }
+//     // if (response.ok) {
+//     //   document.location.replace('/');   
+//     // } else {
+//     //   alert('Failed to save meal.');
+//     // }
    
-  };
+//   };
 
 
 
@@ -78,4 +100,7 @@ const saveCurrentMealHandler = async (event) => {
 //   document
 //   .querySelector('.XXXXXXX')
 //   .addEventListener('click', saveCurrentMealHandler);
+
+
+
 
