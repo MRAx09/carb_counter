@@ -58,8 +58,7 @@ router.get('/', async (req, res) => {
 
 const savedMealData = await Meal.findAll({
   where: {
-    // user_id: req.session.user_id
-    id: req.session.user_id
+    user_id: req.session.user_id
   },
   include: {
     model: Food,                  
