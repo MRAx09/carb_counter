@@ -320,5 +320,53 @@ router.get('/currentmeal', async (req, res) => {
 
 
 
+//get route to get searched food ID to feed into local storage for current meal view
+
+
+router.get('/searchtocurrent', async (req, res) => {  
+  try {
+      console.log('*******************req.query:   ', req.query)
+      const foodSearch = await Food.findAll( {
+        where: [{
+          food_name: req.query.q,
+        }]
+      }); 
+
+      var numberArray = [];
+      console.log(foodSearch.length)
+
+      // if (foodSearch.length > 1) {
+
+        for (i=0; i<foodSearch.length; i++) {
+          numberArray.push(foodSearch[i].dataValues.id)
+        }
+
+      console.log('numberArray:       ', numberArray)
+
+      var largest = Math.max.apply(Math, numberArray);
+
+      console.log('largest:        ', largest)
+      
+
+      var largObj = {}, send = [];
+      largObj.food = 'foodid';
+      largObj.id = largest;
+      send.push(largObj);
+
+        console.log('SEND:     ', send)
+      
+      res.render('currentmeal', send)
+      
+    
+} catch (err) {
+  console.log(err);
+  res.status(500).json(err);
+}
+});
+
+
+
+
+
 
 module.exports = router;
