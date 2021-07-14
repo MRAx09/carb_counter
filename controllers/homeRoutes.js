@@ -387,15 +387,8 @@ router.get('/searchtocurrent', async (req, res) => {
 
       console.log('largest:        ', largest)
       
-
-      var largObj = {}, send = [];
-      largObj.food = 'foodid';
-      largObj.id = largest;
-      send.push(largObj);
-
-        console.log('SEND:     ', send)
       
-      res.render('currentmeal', send)
+      res.render('currentmeal', {largest})
       
     
 } catch (err) {
