@@ -14,7 +14,9 @@ router.get('/', async (req, res) => {
   try {
 
     if (!req.session.logged_in) {
-      res.render('homepage');
+      // res.render('landingpage');
+      const onSignupLogin = true;
+      res.render('landingpage', { onSignupLogin });
     } else {
       const userData = await User.findAll( {
         where: [{
@@ -29,18 +31,58 @@ router.get('/', async (req, res) => {
 // ****** savedMealData section below. Don't think this returns the
 // ****** right data. We should progably change this to imitate
 // ****** what happens with UserData (above) exactly.
-      const savedMealData = await Meal.findAll({
-        where: [{
-          // user_id: req.session.user_id
-          id: req.session.user_id
-        }],
-        include: [{
-          model: Food,                  
-          through: { attribites: [] },  
-        }]
-      });
-      const usermeals = savedMealData.map((food) => food.get({ plain: true }));
+
+
+
+      // const savedMealData = await Meal.findAll({
+      //   where: {
+      //     // user_id: req.session.user_id
+      //     id: req.session.user_id
+      //   },
+      //   include: {
+      //     model: Food,                  
+      //     through: { attributes: [] },  
+      //   }
+      // });
+      // const usermeals = savedMealData.map((food) => food.get({ plain: true }));
+
+
+
 // ********* end savedMealData section
+
+
+//&&&&&&  adding new saved meal section
+
+
+
+
+const savedMealData = await Meal.findAll({
+  where: {
+    user_id: req.session.user_id
+  },
+  include: {
+    model: Food,                  
+    through: { attributes: [] },   
+  }
+});
+
+console.log(savedMealData);
+console.log('++++++++++++++++++++++++++')
+const usermeals = savedMealData.map((food) => food.get({ plain: true }));
+
+console.log(usermeals)
+console.log(JSON.stringify(usermeals))
+if (usermeals.hasOwnProperty("food_name")){ console.log(usermeals.food_name)};
+console.log('mmmmmmmmmmmmmmmm')
+
+
+
+
+
+//&&&&&&  end of new saved meal section
+
+
+
       const userNm = await User.findAll( {
         where: [{
           id: req.session.user_id
@@ -54,6 +96,9 @@ router.get('/', async (req, res) => {
         res.render('homepage', {logged_in: req.session.logged_in});
       } else {
       const userFoods = favorites[0].user_foods; 
+
+      console.log('*******userFood******    ', userFoods)
+      console.log('******************** userMeals:     ', usermeals)
 
 // **** Add a similar if statement for userMeals?
       if (userFoods) {
@@ -256,14 +301,105 @@ router.get('/search', async (req, res) => {
 
       
     }
-
-
-    
     
 } catch (err) {
   console.log(err);
   res.status(500).json(err);
 }
 });
+
+
+
+
+
+//get route to show food values for current meal
+router.get('/currentmeal', async (req, res) => {  
+  try {
+      console.log('*******************req.query:   ', req.query)
+      const list = req.query.q
+      console.log('LLLLLLL list LLLLLL     ', list);
+       
+      //convert comma separated list without spaces into an array
+      const array = list.split(/["',]+/);
+      console.log('ARRAY...:    ', array)
+
+      //convert array of strings into array of numbers
+      const numArray = array.map((i) => Number(i));
+      console.log('NUMBER ARRAY....;     ', numArray);
+
+      //get all foods that have ids in the number array
+      const currentMealFoods = await Food.findAll( {
+        where: [{
+          id: numArray,
+        }]
+      }); 
+
+      console.log("##### current Meal Foods #####     ", currentMealFoods)
+      
+
+      
+
+      const foods = currentMealFoods.map((food) => food.get({ plain: true }));
+
+      console.log('foods..:      ', foods)
+
+
+      //put foods onto current meal partial in homepage.handlebars
+      res.render('currentmeal', {   
+        foods,
+        logged_in: req.session.logged_in,
+      });
+
+} catch (err) {
+  console.log(err);
+  res.status(500).json(err);
+}
+});
+
+
+
+
+
+//get route to get searched food ID to feed into local storage for current meal view
+
+
+router.get('/searchtocurrent', async (req, res) => {  
+  try {
+      console.log('*******************req.query:   ', req.query)
+      const foodSearch = await Food.findAll( {
+        where: [{
+          food_name: req.query.q,
+        }]
+      }); 
+
+      var numberArray = [];
+      console.log(foodSearch.length)
+
+      // if (foodSearch.length > 1) {
+
+        for (i=0; i<foodSearch.length; i++) {
+          numberArray.push(foodSearch[i].dataValues.id)
+        }
+
+      console.log('numberArray:       ', numberArray)
+
+      var largest = Math.max.apply(Math, numberArray);
+
+      console.log('largest:        ', largest)
+      
+      
+      res.render('currentmeal', {largest})
+      
+    
+} catch (err) {
+  console.log(err);
+  res.status(500).json(err);
+}
+});
+
+
+
+
+
 
 module.exports = router;

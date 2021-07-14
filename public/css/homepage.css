@@ -254,14 +254,12 @@ color: #000000;
 
 /* #showLogInBtn {
 display:initial;
-
 position: absolute;
 width: 141px;
 height: 48px;
 left:600px;
 top: 400px ;
 margin:auto;
-
 background: #9CDA8D;
 border: 2px solid #000000;
 box-sizing: border-box;

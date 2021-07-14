@@ -1,0 +1,48 @@
+{{!-- This partial can be shown in the savedmeals.handlebars view, 
+the  search.handlebars view, and the homepage.handlebars view --}}
+
+<div id="mealName">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="current-meal-name" placeholder="Enter meal name" aria-label="Recipient's username"
+                    aria-describedby="button-addon2">
+                <button class="btn btn-outline-success cur-meal-save-button" type="button" id="button-addon2">💾</button>
+            </div>
+        </div>
+
+        <div id="rightWindow">
+            <table class="table table-striped table-hover" id="curMealTable">
+                <thead>
+                    <tr>
+                        <th scope="col">Food <br>Name</th>
+                        <th scope="col">Serving</th>
+                        <th scope="col">Carbs (g)</th>
+                        <th scope="col">Fav.</th>
+                        <th scope="col"> Del.</th>
+                    </tr>
+                </thead>
+                <tbody id="currentMealTableBody">
+                    {{#each foods as |food|}}
+
+                    <tr>
+                        <td>{{ food.food_name }}</td> 
+                        <td>{{ food.serving_qty }} {{ food.serving_unit }} <br> ({{ food.serving_weight_grams }}g)</td>
+                        <td class="carbRow">{{food.nf_total_carbohydrates}}g<br>(includes {{food.nf_dietary_fiber}}g fiber)</td>
+                        <td><button type="button" class="btn btn-sm btn-outline-success addFavButton">❤️</button></td>
+                        <td><button type="button" class="btn btn-sm btn-outline-danger deleteBtn">🗑️</button></td>
+                    </tr>
+
+                    {{/each}}
+
+
+                    <div class="input-group mb-3">
+                        <a href='/'><button class="btn btn-outline-success" type="button">Go Back</button></a>
+                    </div>
+
+                    <p id="searched-food-id" class="hide-this">  {{ largest }}</p>
+
+                </tbody>
+            </table>
+        </div>
+
+ <script src="/js/currentmeal.js"></script>  
+

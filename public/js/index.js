@@ -42,8 +42,6 @@ var searchDiv = $("#searchDiv")
 var favorites = $("#favorites")
 let table = $(".table");
 
-var customFood = $("#customFood")
-
 var loggedInDisplay = $("#loggedInDisplay")
 
 // // delete row item function
@@ -52,69 +50,52 @@ var loggedInDisplay = $("#loggedInDisplay")
 //     $('tr.selected').remove();
 // });
 
-// customFood.click(function () {
-
-
-//   leftWindow.css("display", "initial");
-//   leftWindow.css("left", "500px");
-
-//   dropDown.css("display", "initial");
-//   logo.css("display", "initial");
-//   landingLogo.css("display", "initial");
-//   searchDiv.css("display", "initial")
-//   mealName.css("display", "initial");
-//   loggedInDisplay.css("display", "initial");
-
-// })
-
-
-
 addFavButton.click(function () {
-  // let row = $(this).closest('tr')
-  // console.log(row)
-  // row.appendTo(favorites)
-  // need to exclude buttons and include formatting
-  $(".add-row").click(function () {
-    markup = "<tr><td>This is row "
-      + lineNo + "</td></tr>";
-    tableBody = $("table tbody");
-    tableBody.append(markup);
-    lineNo++;
-  });
+    // let row = $(this).closest('tr')
+    // console.log(row)
+    // row.appendTo(favorites)
+    // need to exclude buttons and include formatting
+    $(".add-row").click(function () {
+        markup = "<tr><td>This is row "
+            + lineNo + "</td></tr>";
+        tableBody = $("table tbody");
+        tableBody.append(markup);
+        lineNo++;
+    });
 });
 
 showSignUpBtn.on("click", function showSignUp(e) {
-  e.preventDefault();
-  flavorTxt.css("display", "none");
-  logInInputs.css("display", "none");
-  backBtn.css("display", "initial");
-  signUpInputs.css("display", "initial");
-  initialBtns.css("display", "none");
+    e.preventDefault();
+    flavorTxt.css("display", "none");
+    logInInputs.css("display", "none");
+    backBtn.css("display", "initial");
+    signUpInputs.css("display", "initial");
+    initialBtns.css("display", "none");
 })
 
 // showLogInBtn.on("click", function showLogIn(e) {
 //     e.preventDefault();
-backBtn.css("display", "initial");
-flavorTxt.css("display", "none");
-logInInputs.css("display", "initial")
-signUpInputs.css("display", "none");
-initialBtns.css("display", "none");
+    backBtn.css("display", "initial");
+    flavorTxt.css("display", "none");
+    logInInputs.css("display", "initial")
+    signUpInputs.css("display", "none");
+    initialBtns.css("display", "none");
 // })
 
 
 backBtn.on("click", function back(e) {
-  e.preventDefault();
-  flavorTxt.css("display", "initial");
-  logInInputs.css("display", "none")
-  signUpInputs.css("display", "none");
-  initialBtns.css("display", "initial");
-  backBtn.css("display", "none");
+    e.preventDefault();
+    flavorTxt.css("display", "initial");
+    logInInputs.css("display", "none")
+    signUpInputs.css("display", "none");
+    initialBtns.css("display", "initial");
+    backBtn.css("display", "none");
 
 })
 
 var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
 var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
-  return new bootstrap.Dropdown(dropdownToggleEl)
+    return new bootstrap.Dropdown(dropdownToggleEl)
 })
 
 background.css("display", "none");
@@ -123,44 +104,32 @@ leftWindow.css("display", "initial");
 rightWindow.css("display", "initial");
 dropDown.css("display", "initial");
 logo.css("display", "initial");
-landingLogo.css("display", "initial");
+landingLogo.css("display", "none");
 searchDiv.css("display", "initial")
 mealName.css("display", "initial");
 loggedInDisplay.css("display", "initial");
 
 
 deleteBtn.click(async function () {
-  if (this.hasAttribute('foodDelBtn-id')) {
-    const id = this.getAttribute('foodDelBtn-id');
-    console.log('IDDDDDDDDDDDDDDDDDD');
-    console.log(id);
-    const response = await fetch(`/api/foods/${id}`, {
-      method: 'DELETE',
-    });
-
-    if (response.ok) {
-      // document.location.replace('/api/meals/savedmeals');
-      alert('Favorite deleted');
-      $(this).closest('tr').addClass('selected');
-      $('tr.selected').remove();
-    } else {
-      alert('Failed to delete favorite');
+    if (this.hasAttribute('foodDelBtn-id')) {
+      const id = this.getAttribute('foodDelBtn-id');
+        console.log('IDDDDDDDDDDDDDDDDDD');
+        console.log(id);
+      const response = await fetch(`/api/foods/${id}`, {
+        method: 'DELETE',
+      });
+  
+      if (response.ok) {
+        // document.location.replace('/api/meals/savedmeals');
+        alert('Favorite deleted');
+        $(this).closest('tr').addClass('selected');
+        $('tr.selected').remove();
+      } else {
+        alert('Failed to delete favorite');
+      }
     }
-  }
 
-});
-
-
-
-
-
-
-
-
-
-
-
-
+  });
 // ***** Don't think this commented out section is needed.
 // ***** Remove it. This is taken care of by the the inital GET '/' route. 
 // const mealsTabHandler = async (event) => {
@@ -202,7 +171,7 @@ deleteBtn.click(async function () {
 //       const response = await fetch(`/api/foods/${id}`, { //****??? */
 //         method: 'DELETE',
 //       });
-
+  
 //       if (response.ok) {
 //         // document.location.replace('/api/meals/savedmeals');
 //         alert('Favorite deleted');
@@ -221,3 +190,19 @@ deleteBtn.click(async function () {
 //     $(this).closest('tr').addClass('selected');
 //     $('tr.selected').remove();
 // });
+
+
+//Code to total carbohydrates in current meal
+var cls = document.getElementById("curMealTable").getElementsByTagName("td");
+// if (cls) {
+  var sum = 0;
+  for (var i = 0; i < cls.length; i++){
+      if(cls[i].className == "carbRow"){
+        var carbColString = cls[i].innerHTML;
+        sum += Number(carbColString.substring(0, carbColString.indexOf("g")));
+      };
+  }
+  var tableBody = document.getElementById("currentMealTableBody");
+  var text = document.createTextNode(` Total carbs: ${sum}`);
+  tableBody.appendChild(text);
+// };

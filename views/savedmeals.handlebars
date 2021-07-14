@@ -4,10 +4,10 @@ We will put the current meal partial in here on the right side --}}
 
 <h1>you made it to saved meal handlebars</h1>
 <br>
-{{#if meals.length}}
-{{#each meals as |meal|}}
+{{#if usermeals.length}}
+{{#each usermeals as |meal|}}
 
-<h4><a href="/api/meals/savedmeals/{{meal.id}}"">{{meal.meal_name}}</h4>
+<h4><a href="/api/meals/savedmeals/{{meal.id}}">{{meal.meal_name}}</h4>
 
 
 {{/each}}
@@ -15,4 +15,4 @@ We will put the current meal partial in here on the right side --}}
 
 
 
-{{>currentmeal}}
+{{!-- {{>currentmeal}} --}}
