@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Meal, Food, Favorite, User } = require('../../models');
+const { Meal, Food, Favorite, User, Mealfood } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/savedmeals/:id', withAuth, async (req, res) => {
@@ -32,8 +32,29 @@ router.get('/savedmeals/:id', withAuth, async (req, res) => {
   }
 });
 
+
+// Original below vvvvvvvvvvvvv
+//
+// router.post('/', withAuth, async (req, res) => {
+//   try {
+//     const newMeal = await Meal.create({
+//       // ...req.body,
+//       meal_name: req.body.mealname,
+//       user_id: req.session.user_id,
+//     });
+//     console.log('zzzzz');
+//     console.log(req.body);
+//     res.status(200).json(newMeal);
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
+
+// New version below vvvvvvvvvvvv
+//
 router.post('/', withAuth, async (req, res) => {
   try {
+    console.log('req.body:      ', req.body)
     const newMeal = await Meal.create({
       // ...req.body,
       meal_name: req.body.mealname,
@@ -41,11 +62,96 @@ router.post('/', withAuth, async (req, res) => {
     });
     console.log('zzzzz');
     console.log(req.body);
-    res.status(200).json(newMeal);
+    // const newMealfood = await Mealfood.bulkCreate ()
+
+
+    // const allMealData = await Meal.findAll({
+    //   where: [{
+    //     id: req.session.user_id
+    //   }]
+    // });
+    const allMealData = await User.findAll( {
+      where: [{
+        id: req.session.user_id,
+      }],
+      include: [
+      {
+        model: Meal,
+        as: 'meals',
+        required: 'false',
+      }],
+    });
+    // console.log('-----here?');
+    // console.log(allMealData);
+    // console.log(allMealData[0].meals);
+    // console.log('-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=');
+    // console.log(req.session.user_id);
+    // console.log(allMealData[0].meals.length);
+    // console.log('^^^^^^^^^^^^^^^^^^^^    ^^^^^^^^^^^   ^^^^^^');
+    len = allMealData[0].meals.length;
+    const lastMealId = allMealData[0].meals[len-1].dataValues.id;
+    // console.log(lastMealId);
+
+    var foodsInMeal = req.body.foodIds;
+    foodsInMeal = foodsInMeal.replace('\\','');
+    // console.log('_+_+_+_+_+_+_+_+_+_+_+');
+    // console.log(foodsInMeal);
+    var foodsInMeal = foodsInMeal.replace(/\D/g, ",");
+    // console.log('_^_^_^_^_^_^_^_^_^_^_^_^_^');
+    // console.log(foodsInMeal);
+    foodsInMeal = foodsInMeal.split(",");
+    var filteredFoodsArray = foodsInMeal.filter(function (el) {
+      return el != '';
+    });
+    // console.log('------------filtered-----------');
+    // console.log(filteredFoodsArray);
+
+    // ****************
+    // filteredFoodsArray.forEach(async item => {
+    //   const newMealFoodItem = await Mealfood.create({
+    //     // ...req.body,
+    //     meal_id: mealId,
+    //     food_id: item,
+    //   });
+    // });
+    // **************
+    // filteredFoodsArray.forEach(createMealfood());
+
+
+
+    // async function createMealfood() {
+    //   console.log('!!!!!!!!~~~~~~~~!!!!!!');
+    //   console.log(createMealfood)
+    //   const newMealFoodItem = await Mealfood.create({
+    //     // ...req.body,
+    //     meal_id: mealId,
+    //     food_id: item,
+    //   });
+    // };
+    // ***********
+    filteredFoodsArray.forEach((entry) = async (entry) => {
+      // console.log('-------   ----   ----   ---  ');
+      // console.log(entry);
+      const blah = entry;
+      // console.log(lastMealId);
+      const newMealFoodItem = await Mealfood.create({
+        // ...req.body,
+        meal_id: lastMealId,
+        food_id: blah,
+      });
+      console.log('??????????????');
+      console.log(newMealFoodItem);
+
+    });
+
+    // res.render('homepage', {newMeal, logged_in: req.session.logged_in});
+    res.status(200).json(newMeal); // ****Update this?
   } catch (err) {
     res.status(400).json(err);
   }
 });
+
+
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
