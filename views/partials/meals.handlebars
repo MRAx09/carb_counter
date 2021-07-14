@@ -2,7 +2,7 @@
 
 {{#each usermeals as |usermeal| }}
     <tr>
-      <a href="/api/meals/savedmeals/{{usermeal.id}}"><td>{{usermeal.meal_name}}</td></a>  
+      <td><a href="/api/meals/savedmeals/{{usermeal.id}}">{{usermeal.meal_name}}</a></td>  
       <td><button type="button" class="btn btn-sm btn-outline-danger deleteBtn" id="delete-btn" mealDelBtn-id={{usermeal.id}}>🗑️</button></td>
     </tr>
 
