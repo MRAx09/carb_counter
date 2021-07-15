@@ -28,31 +28,6 @@ Meal.init(
         type: DataTypes.STRING,
         allowNull: true,
     },
-    // food_ids: {
-    //   type: Sequelize.STRING,
-    //   allowNull: false,
-    //   get() {
-    //     return this.getDataValue('')
-    //   }
-    // }
-
-
-
-
-    // total_carbohydrates: {
-    //     type: DataTypes.INTEGER,
-    //     allowNull: false,
-    //     validate: {
-    //         isNumeric: true,
-    //     },
-    // },
-    // fiber: {
-    //     type: DataTypes.INTEGER,
-    //     allowNull: false,
-    //     validate: {
-    //         isNumeric: true,
-    //     },
-    // },
   },
   {
     sequelize,

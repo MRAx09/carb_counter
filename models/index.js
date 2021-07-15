@@ -13,21 +13,13 @@ Meal.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
-// Meal.hasMany(Food, {
-//     foreignKey: 'user_id',
-//     onDelete: 'CASCADE'
-//   });
   
 Food.belongsToMany(Meal, {
     through: Mealfood,
-    // as: 'meals',
-    // foreignKey: 'food_id'
   });
 
 Meal.belongsToMany(Food, {
     through: Mealfood,
-    // as: 'foods',
-    // foreignKey: 'meal_id'
   });
 
 User.belongsToMany(Food, {

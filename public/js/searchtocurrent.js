@@ -20,7 +20,7 @@ const stringId = JSON.stringify(searchedFoodId)
         }
 
         console.log('currentStored:     ', currentStored);
-        // let array = Array.from(currentStored)
+        
         currentStored.push(stringId.trim());
         console.log('now currentStored:     ', currentStored);
 
@@ -30,7 +30,7 @@ const stringId = JSON.stringify(searchedFoodId)
         
         //go to currentmeal get route and send list of food ids
         window.location.replace(`/currentmeal?q=${currentStored}`)
-        // window.location.replace(`/?q=${currentStored}`)
+        
 
     }
     putSearchedIdinLocalStorage();
