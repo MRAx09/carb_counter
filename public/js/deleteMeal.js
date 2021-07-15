@@ -1,9 +1,11 @@
-var delMealBtn = $("#delete-btn");
+var delMealBtn = $('.deleteBtn-m');
+// var delMealBtn = $('#delete-btn');
+console.log('~~~~~~~   ~~~~~~~   ~~~~~~~');
 delMealBtn.click(async function () {
   console.log('-------del button handler------');
-  if (event.target.hasAttribute('mealDelBtn-id')) {
+  if (this.hasAttribute('mealDelBtn-id')) {
     console.log('It has the attribute');
-    const id = event.target.getAttribute('mealDelBtn-id');
+    const id = this.getAttribute('mealDelBtn-id');
     console.log(id);
 
     const response = await fetch(`/api/meals/${id}`, {
@@ -11,7 +13,9 @@ delMealBtn.click(async function () {
     });
 
     if (response.ok) {
-      document.location.replace('/api/meals/savedmeals');
+      // document.location.replace('/api/meals/savedmeals');
+       document.location.replace('/');
+
     } else {
       alert('Failed to delete meal');
     }
@@ -41,5 +45,5 @@ delMealBtn.click(async function () {
 // };
 
 // document
-//   .querySelector('#delete-btn')
+//   .querySelector("#blahblah")
 //   .addEventListener('click', delButtonHandler);
