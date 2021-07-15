@@ -27,7 +27,7 @@ the  search.handlebars view, and the homepage.handlebars view --}}
                         <td>{{ food.food_name }}</td> 
                         <td>{{ food.serving_qty }} {{ food.serving_unit }} <br> ({{ food.serving_weight_grams }}g)</td>
                         <td class="carbRow">{{food.nf_total_carbohydrates}}g<br>(includes {{food.nf_dietary_fiber}}g fiber)</td>
-                        <td><button type="button" class="btn btn-sm btn-outline-success addFavButton">❤️</button></td>
+                        <td><button type="button" class="btn btn-sm btn-outline-success addFavButton" foodFavBtn-id={{food.id}}>❤️</button></td>
                         {{!-- <td><button type="button" class="btn btn-sm btn-outline-danger deleteBtn">🗑️</button></td> --}}
                     </tr>
 

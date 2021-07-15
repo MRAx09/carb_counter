@@ -125,6 +125,33 @@ saveMealBtn.click(async function () {
 
 
 
+//Add to favorites button
+
+
+
+var favBtn = $(".addFavButton");
+favBtn.click(async function () {
+
+    const food_id = this.getAttribute('foodFavBtn-id');
+        console.log('IDDDDDDDDDDDDDDDDDD');
+        console.log(food_id);
+
+ 
+   
+    const response = await fetch('/api/foods/addfavorite', {
+      method: 'POST',
+      body: JSON.stringify({ food_id }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+    if (response.ok) {
+      document.location.replace('/');   
+    } else {
+      alert('Failed to add to favorites');
+    }
+});
+
+
+
 
 // Old save button function below. This worked, but it caused 
 // Current Meal button to break for some reason.
